@@ -8,7 +8,5 @@ export const resume = {
   bio: `Technology executive with 10+ years of progressive experience in AI strategy, software engineering, IT leadership, and digital transformation. Proven track record of engineering production AI systems, leading cloud migrations, and driving 60%+ efficiency improvements across high-volume contact center operations. Known for aligning technology roadmaps with business objectives, building high-performing cross-functional teams, and delivering scalable, secure infrastructure.`,
   stats: [
     { label: "Years Experience", value: "10+" },
-    { label: "Companies", value: "6+" },
-    { label: "Fortune 500 Clients", value: "Multiple" },
   ],
 } as const;
