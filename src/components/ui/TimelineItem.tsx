@@ -1,55 +1,58 @@
 import { motion } from "framer-motion";
-import type { ExperienceEntry } from "../../data/experience";
+import { fadeInUp } from "../../lib/animations";
+import TechBadge from "./TechBadge";
 
 interface TimelineItemProps {
-  entry: ExperienceEntry;
+  entry: {
+    company: string;
+    title: string;
+    period: string;
+    highlights: string[];
+    tech: string[];
+  };
   index: number;
+  isCurrent?: boolean;
 }
 
-export default function TimelineItem({ entry, index }: TimelineItemProps) {
+export default function TimelineItem({ entry, index, isCurrent }: TimelineItemProps) {
   return (
     <motion.div
-      className="relative pl-8 pb-10 last:pb-0"
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: index * 0.1, duration: 0.4 }}
+      variants={fadeInUp}
+      custom={index}
+      className="relative rounded-xl border border-border bg-bg-card p-6 transition-colors hover:border-border-bright"
     >
-      {/* Timeline line */}
-      <div className="absolute left-[7px] top-3 bottom-0 w-px bg-gradient-to-b from-accent-blue to-accent-purple opacity-30" />
+      {/* Left accent border */}
+      <div className="absolute top-0 left-0 h-full w-0.5 rounded-full bg-gradient-to-b from-accent-blue to-accent-cyan" />
 
-      {/* Timeline dot */}
-      <div className="absolute left-0 top-2 h-4 w-4 rounded-full border-2 border-accent-blue bg-bg" />
-
-      {/* Content card */}
-      <div className="glass rounded-xl p-5 hover:bg-glass-hover transition-colors duration-200">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-3">
-          <div>
-            <h3 className="text-base font-semibold text-fg-bold">
-              {entry.title}
-            </h3>
-            <p className="text-sm gradient-text font-medium">{entry.company}</p>
-          </div>
-          <span className="text-xs text-fg-muted font-mono">{entry.period}</span>
+      <div className="pl-4">
+        <div className="mb-1 flex flex-wrap items-center gap-3">
+          <h3 className="text-lg font-semibold text-fg-bold">{entry.title}</h3>
+          {isCurrent && (
+            <span className="rounded-full bg-accent-blue/10 px-2.5 py-0.5 text-xs font-medium text-accent-blue">
+              Current
+            </span>
+          )}
         </div>
 
-        <ul className="space-y-1.5 mb-3">
-          {entry.highlights.map((highlight, i) => (
-            <li key={i} className="text-sm text-fg-muted leading-relaxed">
-              <span className="text-accent-blue mr-2">›</span>
-              {highlight}
+        <p className="mb-3 text-sm text-fg-muted">
+          {entry.company} &middot; {entry.period}
+        </p>
+
+        <ul className="mb-4 space-y-1.5">
+          {entry.highlights.map((h) => (
+            <li
+              key={h}
+              className="flex gap-2 text-sm leading-relaxed text-fg"
+            >
+              <span className="mt-1 text-accent-blue">›</span>
+              {h}
             </li>
           ))}
         </ul>
 
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-2">
           {entry.tech.map((t) => (
-            <span
-              key={t}
-              className="px-2 py-0.5 text-[10px] font-medium rounded-full
-                bg-accent-blue/10 text-accent-blue/80 border border-accent-blue/20"
-            >
-              {t}
-            </span>
+            <TechBadge key={t} label={t} />
           ))}
         </div>
       </div>

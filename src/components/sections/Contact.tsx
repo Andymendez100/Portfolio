@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Github, Linkedin, Mail, MapPin, Loader2 } from "lucide-react";
 import { resume } from "../../data/resume";
+import { fadeInUp } from "../../lib/animations";
+import SectionHeading from "../ui/SectionHeading";
 
 interface FormData {
   name: string;
@@ -41,30 +43,28 @@ export default function Contact() {
     }
   };
 
-  return (
-    <div className="space-y-8">
-      <motion.h2
-        className="text-2xl font-bold gradient-text"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-      >
-        Get in Touch
-      </motion.h2>
+  const inputClasses =
+    "w-full rounded-lg border border-border bg-bg-card px-4 py-3 text-sm text-fg-bold placeholder:text-fg-muted/50 transition-colors focus:border-accent-blue focus:outline-none";
 
-      <div className="grid gap-8 sm:grid-cols-2">
+  return (
+    <div>
+      <SectionHeading
+        eyebrow="Contact"
+        heading="Get in Touch"
+        description="Have a project in mind or want to discuss AI strategy? Let's connect."
+      />
+
+      <div className="grid gap-12 md:grid-cols-2">
         {/* Contact form */}
         <motion.form
+          variants={fadeInUp}
           onSubmit={handleSubmit}
-          className="space-y-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15 }}
+          className="space-y-5"
         >
           <div>
             <label
               htmlFor="name"
-              className="block text-xs font-medium text-fg-muted mb-1.5"
+              className="mb-2 block text-sm font-medium text-fg-bold"
             >
               Name
             </label>
@@ -74,9 +74,7 @@ export default function Contact() {
               required
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="w-full px-4 py-2.5 text-sm rounded-lg bg-glass border border-border
-                text-fg placeholder:text-fg-muted/50 focus:border-accent-blue focus:outline-none
-                transition-colors duration-200"
+              className={inputClasses}
               placeholder="Your name"
             />
           </div>
@@ -84,7 +82,7 @@ export default function Contact() {
           <div>
             <label
               htmlFor="email"
-              className="block text-xs font-medium text-fg-muted mb-1.5"
+              className="mb-2 block text-sm font-medium text-fg-bold"
             >
               Email
             </label>
@@ -94,9 +92,7 @@ export default function Contact() {
               required
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="w-full px-4 py-2.5 text-sm rounded-lg bg-glass border border-border
-                text-fg placeholder:text-fg-muted/50 focus:border-accent-blue focus:outline-none
-                transition-colors duration-200"
+              className={inputClasses}
               placeholder="your@email.com"
             />
           </div>
@@ -104,19 +100,17 @@ export default function Contact() {
           <div>
             <label
               htmlFor="message"
-              className="block text-xs font-medium text-fg-muted mb-1.5"
+              className="mb-2 block text-sm font-medium text-fg-bold"
             >
               Message
             </label>
             <textarea
               id="message"
               required
-              rows={4}
+              rows={5}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="w-full px-4 py-2.5 text-sm rounded-lg bg-glass border border-border
-                text-fg placeholder:text-fg-muted/50 focus:border-accent-blue focus:outline-none
-                transition-colors duration-200 resize-none"
+              className={`${inputClasses} resize-none`}
               placeholder="Your message..."
             />
           </div>
@@ -124,14 +118,12 @@ export default function Contact() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="flex items-center gap-2 px-6 py-2.5 text-sm font-medium rounded-full
-              bg-gradient-to-r from-accent-blue to-accent-purple text-white
-              hover:opacity-90 disabled:opacity-50 transition-opacity duration-200"
+            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-accent-blue to-accent-cyan px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
           >
             {status === "sending" ? (
-              <Loader2 size={14} className="animate-spin" />
+              <Loader2 size={16} className="animate-spin" />
             ) : (
-              <Send size={14} />
+              <Send size={16} />
             )}
             {status === "sending" ? "Sending..." : "Send Message"}
           </button>
@@ -147,22 +139,17 @@ export default function Contact() {
         </motion.form>
 
         {/* Contact info */}
-        <motion.div
-          className="space-y-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          <div className="glass rounded-xl p-5 space-y-4">
-            <div className="flex items-center gap-3 text-sm text-fg-muted">
-              <MapPin size={16} className="text-accent-blue flex-shrink-0" />
+        <motion.div variants={fadeInUp} className="space-y-6">
+          <div className="rounded-xl border border-border bg-bg-card p-6 space-y-4">
+            <div className="flex items-center gap-3 text-sm text-fg">
+              <MapPin size={18} className="text-accent-blue flex-shrink-0" />
               {resume.location}
             </div>
-            <div className="flex items-center gap-3 text-sm text-fg-muted">
-              <Mail size={16} className="text-accent-blue flex-shrink-0" />
+            <div className="flex items-center gap-3 text-sm text-fg">
+              <Mail size={18} className="text-accent-blue flex-shrink-0" />
               <a
                 href={`mailto:${resume.email}`}
-                className="hover:text-fg-bold transition-colors"
+                className="transition-colors hover:text-fg-bold"
               >
                 {resume.email}
               </a>
@@ -179,12 +166,10 @@ export default function Contact() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 text-xs font-medium rounded-full
-                  glass hover:bg-glass-hover text-fg-muted hover:text-fg-bold
-                  transition-all duration-200"
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm text-fg-muted transition-all hover:border-border-bright hover:text-fg-bold"
                 aria-label={label}
               >
-                <Icon size={14} />
+                <Icon size={16} />
                 {label}
               </a>
             ))}

@@ -1,109 +1,69 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { resume } from "../../data/resume";
+import { fadeInUp } from "../../lib/animations";
+import SectionHeading from "../ui/SectionHeading";
+import StatCard from "../ui/StatCard";
 
 export default function About() {
   return (
-    <div className="space-y-8">
-      <motion.h2
-        className="text-2xl font-bold gradient-text"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-      >
-        About Me
-      </motion.h2>
+    <div>
+      <SectionHeading
+        eyebrow="About"
+        heading="Who I Am"
+        description="Results-driven engineering leader passionate about AI and cloud architecture."
+      />
 
-      <div className="flex flex-col sm:flex-row gap-8 items-start">
-        {/* Photo placeholder */}
-        <motion.div
-          className="flex-shrink-0 mx-auto sm:mx-0"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.15, duration: 0.4 }}
-        >
-          <div className="w-36 h-36 rounded-full gradient-border overflow-hidden">
+      <div className="grid gap-12 md:grid-cols-[280px_1fr]">
+        {/* Headshot */}
+        <motion.div variants={fadeInUp} className="flex justify-center md:justify-start">
+          <div className="relative h-64 w-64 overflow-hidden rounded-2xl gradient-border">
             <img
               src="/images/headshot.jpg"
               alt="Andy Mendez"
-              className="w-full h-full rounded-full object-cover object-top"
+              className="h-full w-full object-cover object-top"
             />
+            {/* Gradient glow behind */}
+            <div className="absolute -inset-1 -z-10 rounded-2xl bg-gradient-to-br from-accent-blue/20 to-accent-cyan/20 blur-xl" />
           </div>
         </motion.div>
 
-        {/* Bio */}
-        <motion.div
-          className="flex-1 space-y-4"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.4 }}
-        >
-          <p className="text-sm leading-relaxed text-fg-muted">{resume.bio}</p>
+        {/* Bio + info */}
+        <motion.div variants={fadeInUp} className="space-y-6">
+          <p className="text-lg leading-relaxed text-fg">{resume.bio}</p>
 
-          <div className="flex items-center gap-2 text-xs text-fg-muted">
-            <MapPin size={14} className="text-accent-blue" />
+          <div className="flex items-center gap-2 text-sm text-fg-muted">
+            <MapPin size={16} className="text-accent-blue" />
             {resume.location}
+          </div>
+
+          {/* Social links */}
+          <div className="flex flex-wrap gap-3">
+            {[
+              { icon: Github, href: resume.github, label: "GitHub" },
+              { icon: Linkedin, href: resume.linkedin, label: "LinkedIn" },
+              { icon: Mail, href: `mailto:${resume.email}`, label: "Email" },
+            ].map(({ icon: Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm text-fg-muted transition-all hover:border-border-bright hover:text-fg-bold"
+                aria-label={label}
+              >
+                <Icon size={16} />
+                {label}
+              </a>
+            ))}
           </div>
         </motion.div>
       </div>
 
-      {/* Stats */}
-      <motion.div
-        className="grid grid-cols-3 gap-4"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-      >
+      {/* Stats row */}
+      <motion.div variants={fadeInUp} className="mt-12 flex flex-wrap gap-8">
         {resume.stats.map((stat) => (
-          <div
-            key={stat.label}
-            className="glass rounded-xl p-4 text-center"
-          >
-            <div className="text-2xl font-bold gradient-text">
-              {stat.value}
-            </div>
-            <div className="text-[11px] text-fg-muted mt-1">{stat.label}</div>
-          </div>
-        ))}
-      </motion.div>
-
-      {/* Social links */}
-      <motion.div
-        className="flex gap-3"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.35 }}
-      >
-        {[
-          {
-            icon: Github,
-            href: resume.github,
-            label: "GitHub",
-          },
-          {
-            icon: Linkedin,
-            href: resume.linkedin,
-            label: "LinkedIn",
-          },
-          {
-            icon: Mail,
-            href: `mailto:${resume.email}`,
-            label: "Email",
-          },
-        ].map(({ icon: Icon, href, label }) => (
-          <a
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 text-xs font-medium rounded-full
-              glass hover:bg-glass-hover text-fg-muted hover:text-fg-bold
-              transition-all duration-200"
-            aria-label={label}
-          >
-            <Icon size={14} />
-            {label}
-          </a>
+          <StatCard key={stat.label} value={stat.value} label={stat.label} />
         ))}
       </motion.div>
     </div>

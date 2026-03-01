@@ -1,11 +1,13 @@
 import type { Variants } from "framer-motion";
 
+const smoothEase = [0.22, 1, 0.36, 1];
+
 export const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 40 },
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
+    transition: { delay: i * 0.1, duration: 0.6, ease: smoothEase },
   }),
 };
 
@@ -13,7 +15,16 @@ export const fadeIn: Variants = {
   hidden: { opacity: 0 },
   visible: (i: number = 0) => ({
     opacity: 1,
-    transition: { delay: i * 0.1, duration: 0.4 },
+    transition: { delay: i * 0.1, duration: 0.5, ease: smoothEase },
+  }),
+};
+
+export const slideInLeft: Variants = {
+  hidden: { opacity: 0, x: -40 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    x: 0,
+    transition: { delay: i * 0.1, duration: 0.6, ease: smoothEase },
   }),
 };
 
@@ -30,36 +41,7 @@ export const scaleIn: Variants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.4, ease: "easeOut" },
-  },
-};
-
-export const articleEnter: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.325, ease: "easeOut" },
-  },
-  exit: {
-    opacity: 0,
-    y: -20,
-    transition: { duration: 0.325, ease: "easeIn" },
-  },
-};
-
-export const headerShrink: Variants = {
-  full: {
-    scale: 1,
-    filter: "blur(0px)",
-    opacity: 1,
-    transition: { duration: 0.325 },
-  },
-  shrunk: {
-    scale: 0.95,
-    filter: "blur(2px)",
-    opacity: 0.5,
-    transition: { duration: 0.325 },
+    transition: { duration: 0.5, ease: smoothEase },
   },
 };
 
