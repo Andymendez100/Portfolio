@@ -35,6 +35,15 @@ export const personalProjects: PersonalProject[] = [
     image: "/agent-factory-demo.gif",
     github: "https://github.com/Andymendez100/Agent-Factory",
   },
+  {
+    title: "Multi-Format RAG API",
+    description:
+      "Production RAG API that ingests 14+ document formats (PDF, Excel, Word, PowerPoint, images) with GPU-accelerated OCR via PaddleOCR, generates embeddings via OpenAI or vLLM, and stores vectors in Qdrant for hybrid BM25 + semantic search. Fully containerized with PostgreSQL metadata store.",
+    tech: ["Python", "FastAPI", "Qdrant", "PostgreSQL", "PaddleOCR", "Docker"],
+    impact: "14+ formats, GPU-accelerated OCR, hybrid search",
+    image: "/projects/rag-demo.gif",
+    github: "https://github.com/Andymendez100/rag",
+  },
 ];
 
 export const professionalProjects: ProfessionalProject[] = [
@@ -45,13 +54,6 @@ export const professionalProjects: ProfessionalProject[] = [
     tech: ["Python", "Pipecat", "LiveKit", "AWS", "LangGraph", "Twilio"],
     impact: "Automated outbound call workflows at scale",
     article: "https://medium.com/p/5cf0886f3c32",
-  },
-  {
-    title: "Local RAG System",
-    description:
-      "Fully local Retrieval-Augmented Generation system with custom document ingestion using vLLM for inference, PaddleOCR for document processing, and CUDA acceleration. Zero data leaves the network.",
-    tech: ["Python", "vLLM", "PaddleOCR", "CUDA", "Docker"],
-    impact: "100% local — zero data egress",
   },
   {
     title: "Platform Re-architecture",
