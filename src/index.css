@@ -1,21 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #1b1f22;
-  --color-bg-alt: #0d1117;
-  --color-bg-overlay: rgba(19, 21, 25, 0.5);
-  --color-fg: #e6edf3;
-  --color-fg-muted: rgba(230, 237, 243, 0.5);
-  --color-fg-bold: #ffffff;
-  --color-accent-blue: #58a6ff;
-  --color-accent-purple: #bc8cff;
-  --color-border: rgba(255, 255, 255, 1);
-  --color-border-bg: rgba(255, 255, 255, 0.075);
-  --color-glass: rgba(255, 255, 255, 0.05);
-  --color-glass-hover: rgba(255, 255, 255, 0.08);
-  --color-article-bg: rgba(27, 31, 34, 0.85);
+  --color-bg: #09090b;
+  --color-bg-card: #0c0c0f;
+  --color-bg-elevated: #141418;
+  --color-fg: #a1a1aa;
+  --color-fg-muted: #52525b;
+  --color-fg-bold: #fafafa;
+  --color-accent-blue: #3b82f6;
+  --color-accent-cyan: #22d3ee;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-bright: rgba(255, 255, 255, 0.12);
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-hover: rgba(255, 255, 255, 0.06);
 
-  --font-sans: "Source Sans Pro", sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
@@ -26,7 +25,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  font-weight: 300;
+  font-weight: 400;
   background-color: var(--color-bg);
   color: var(--color-fg);
   -webkit-font-smoothing: antialiased;
@@ -36,46 +35,57 @@ body {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-alt);
+  background: var(--color-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
 }
 
-/* Glassmorphism utility — used only for inner content cards */
+/* Glass card utility */
 @utility glass {
   background: var(--color-glass);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-border);
 }
 
 @utility glass-hover {
   background: var(--color-glass-hover);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--color-border-bright);
 }
 
-/* Gradient text utility — used only for inner content accents */
+/* Gradient text: blue → cyan */
 @utility gradient-text {
-  background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
+  background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-cyan));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Gradient border - plain CSS class */
+/* Accent glow */
+@utility glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15), 0 0 40px rgba(34, 211, 238, 0.1);
+}
+
+/* Dot grid background */
+@utility dot-grid {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Gradient border */
 .gradient-border {
   position: relative;
 }
@@ -86,39 +96,35 @@ body {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
+  background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-cyan));
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: xor;
   pointer-events: none;
 }
 
-/* Accent glow utility */
-@utility glow {
-  box-shadow: 0 0 20px rgba(88, 166, 255, 0.15), 0 0 40px rgba(188, 140, 255, 0.1);
+/* Background gradient mesh animation */
+@keyframes drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 30px) scale(0.95); }
 }
 
-/* Vertical connecting line between header elements */
-.header-line {
-  display: block;
-  width: 1px;
-  background: var(--color-border);
-  margin: 0 auto;
+@keyframes drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-40px, 30px) scale(0.9); }
+  66% { transform: translate(20px, -40px) scale(1.05); }
 }
 
-/* Navigation item borders — responsive */
-.nav-item + .nav-item {
-  border-top: 1px solid white;
+.gradient-orb-1 {
+  animation: drift-1 20s ease-in-out infinite;
 }
 
-@media (min-width: 640px) {
-  .nav-item + .nav-item {
-    border-top: none;
-    border-left: 1px solid white;
-  }
+.gradient-orb-2 {
+  animation: drift-2 25s ease-in-out infinite;
 }
 
-/* Reduced motion: disable all animations/transitions */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -130,7 +136,7 @@ body {
   }
 }
 
-/* Focus visible styles for keyboard navigation */
+/* Focus visible styles */
 :focus-visible {
   outline: 2px solid var(--color-accent-blue);
   outline-offset: 2px;

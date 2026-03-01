@@ -1,40 +1,24 @@
-import { motion } from "framer-motion";
-
-interface BackgroundProps {
-  blurred: boolean;
-}
-
-export default function Background({ blurred }: BackgroundProps) {
+export default function Background() {
   return (
-    <motion.div
-      className="fixed inset-0 z-0"
-      animate={{
-        filter: blurred ? "blur(3px)" : "blur(0px)",
-        scale: blurred ? 1.0825 : 1,
-      }}
-      transition={{ duration: 0.325, ease: "easeOut" }}
-    >
-      {/* Background image */}
+    <div className="fixed inset-0 z-0 overflow-hidden bg-bg">
+      {/* Gradient orb 1 — blue */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/images/bg.jpg')",
-          backgroundColor: "#1b1f22",
-        }}
-      />
-      {/* Dark overlay */}
-      <div
-        className="absolute inset-0"
-        style={{ background: "rgba(19, 21, 25, 0.5)" }}
-      />
-      {/* Extra vignette for depth */}
-      <div
-        className="absolute inset-0"
+        className="gradient-orb-1 absolute -top-1/4 -left-1/4 h-[60vmax] w-[60vmax] rounded-full opacity-15"
         style={{
           background:
-            "radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.5) 100%)",
+            "radial-gradient(circle, #3b82f6 0%, transparent 70%)",
         }}
       />
-    </motion.div>
+      {/* Gradient orb 2 — cyan */}
+      <div
+        className="gradient-orb-2 absolute -right-1/4 -bottom-1/4 h-[50vmax] w-[50vmax] rounded-full opacity-12"
+        style={{
+          background:
+            "radial-gradient(circle, #22d3ee 0%, transparent 70%)",
+        }}
+      />
+      {/* Dot grid overlay */}
+      <div className="absolute inset-0 dot-grid" />
+    </div>
   );
 }

@@ -7,51 +7,51 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Voice AI Bot",
+    title: "Production Voice AI Bot",
     description:
-      "Production voice AI system with telephony integration, conversational AI pipeline, and custom answering machine detection. Handles real-time voice interactions at scale with sub-second latency.",
-    tech: ["Python", "Pipecat", "LiveKit", "AWS", "LangGraph"],
-    impact: "Production deployment with real-time telephony",
+      "End-to-end production voice AI system with full telephony integration, conversational AI pipeline, and custom Answering Machine Detection (AMD), automating outbound call workflows and significantly increasing live contact rates.",
+    tech: ["Python", "Pipecat", "LiveKit", "AWS", "LangGraph", "Twilio"],
+    impact: "Automated outbound call workflows at scale",
   },
   {
     title: "Agent Factory",
     description:
-      "Multi-agent orchestration platform built with LangGraph enabling complex workflow automation. Agents collaborate on tasks including research, code generation, and data analysis.",
+      "Reusable AI agent workflow platform built with LangGraph, streamlining team lead operations across departments and accelerating automation adoption across the organization.",
     tech: ["Python", "LangGraph", "TypeScript", "React", "Docker"],
-    impact: "Automated complex multi-step workflows",
+    impact: "Streamlined operations across departments",
   },
   {
     title: "Local RAG System",
     description:
-      "Fully local Retrieval-Augmented Generation system using vLLM for inference, PaddleOCR for document processing, and CUDA acceleration. Zero data leaves the network.",
+      "Fully local Retrieval-Augmented Generation system with custom document ingestion using vLLM for inference, PaddleOCR for document processing, and CUDA acceleration. Zero data leaves the network.",
     tech: ["Python", "vLLM", "PaddleOCR", "CUDA", "Docker"],
     impact: "100% local — zero data egress",
   },
   {
     title: "Platform Re-architecture",
     description:
-      "Led the transformation of a single-threaded application into a multi-threaded architecture, dramatically improving throughput and eliminating processing bottlenecks.",
+      "Transformed a single-threaded core platform into a multi-threaded architecture, dramatically improving throughput and agent productivity across the contact center.",
     tech: ["Node.js", "Worker Threads", "Redis", "Docker"],
     impact: "99.8% speed improvement",
   },
   {
     title: "AWS Cloud Migration",
     description:
-      "Planned and executed enterprise cloud migration from on-premise infrastructure to AWS, optimizing for cost, reliability, and scalability.",
-    tech: ["AWS", "Terraform", "Docker", "CI/CD", "CloudFront"],
+      "Led enterprise cloud migration from on-premise infrastructure to AWS, implementing load balancing and auto-scaling for cost optimization, reliability, and scalability.",
+    tech: ["AWS", "EC2", "Docker", "CI/CD", "CloudFront"],
     impact: "30% cost reduction, 40% reliability improvement",
   },
   {
     title: "NAWCTSD AI Challenge Winner",
     description:
-      "Built a real-time anomaly detection tool for defense training simulations at Raytheon. Recognized as Top Innovation by NAWCTSD judges.",
+      "Engineered a real-time anomaly detection tool at Raytheon Technologies that cut mission preparation time by 50%. Recognized as Top Innovation by NAWCTSD judges.",
     tech: ["Python", "Machine Learning", "Data Visualization", "Real-time"],
     impact: "Top Innovation Award — Raytheon",
   },
   {
     title: "Digital Agent Interfaces",
     description:
-      "AI-powered digital human interfaces for Fortune 500 clients at Soul Machines. Combined conversational AI with photorealistic avatar rendering for immersive user experiences.",
+      "Front-end interface for AI-powered digital agents at Soul Machines, deployed by enterprise clients including Woolworths and General Motors. Brought autonomous digital humans to life across customer-facing channels.",
     tech: ["JavaScript", "Three.js", "WebGL", "Conversational AI"],
     impact: "Deployed for Fortune 500 clients",
   },

@@ -6,7 +6,7 @@ export interface SkillCategory {
 export const skillCategories: SkillCategory[] = [
   {
     name: "Languages",
-    skills: ["TypeScript", "JavaScript", "Python"],
+    skills: ["TypeScript", "JavaScript", "Python", "HTML5", "CSS"],
   },
   {
     name: "AI / ML",
@@ -19,7 +19,10 @@ export const skillCategories: SkillCategory[] = [
       "LiveKit",
       "OpenAI API",
       "Anthropic API",
+      "Gemini API",
+      "AWS Bedrock",
       "Hugging Face",
+      "PaddleOCR",
     ],
   },
   {
@@ -30,6 +33,7 @@ export const skillCategories: SkillCategory[] = [
       "Three.js",
       "GraphQL",
       "Material-UI",
+      "WebSockets",
     ],
   },
   {
@@ -42,10 +46,24 @@ export const skillCategories: SkillCategory[] = [
       "Kubernetes",
       "AWS",
       "GCP",
+      "Lambda",
+      "EC2",
+      "S3",
+      "SQS",
+      "Redis",
     ],
   },
   {
     name: "DevOps & Tools",
-    skills: ["CI/CD", "Linux", "Nginx", "GitHub", "GitLab"],
+    skills: [
+      "CI/CD",
+      "Linux",
+      "Nginx",
+      "GitHub",
+      "GitLab",
+      "OpenVPN",
+      "SentinelOne",
+      "Agile",
+    ],
   },
 ];

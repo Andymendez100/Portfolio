@@ -1,23 +1,11 @@
-import { motion } from "framer-motion";
-
 interface SkillBadgeProps {
   name: string;
-  delay?: number;
 }
 
-export default function SkillBadge({ name, delay = 0 }: SkillBadgeProps) {
+export default function SkillBadge({ name }: SkillBadgeProps) {
   return (
-    <motion.span
-      className="inline-block px-3 py-1.5 text-xs font-medium rounded-full
-        bg-glass border border-border text-fg-muted
-        hover:border-accent-blue/40 hover:text-accent-blue hover:bg-accent-blue/5
-        transition-all duration-200 cursor-default"
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay, duration: 0.3 }}
-      whileHover={{ scale: 1.05 }}
-    >
+    <span className="inline-block rounded-lg border border-border bg-bg-elevated px-3 py-1.5 text-xs font-medium text-fg transition-all hover:border-accent-blue/40 hover:text-fg-bold">
       {name}
-    </motion.span>
+    </span>
   );
 }
