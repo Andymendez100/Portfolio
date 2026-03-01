@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #1b1f22;
+  --color-bg-alt: #0d1117;
+  --color-bg-overlay: rgba(19, 21, 25, 0.5);
+  --color-fg: #e6edf3;
+  --color-fg-muted: rgba(230, 237, 243, 0.5);
+  --color-fg-bold: #ffffff;
+  --color-accent-blue: #58a6ff;
+  --color-accent-purple: #bc8cff;
+  --color-border: rgba(255, 255, 255, 1);
+  --color-border-bg: rgba(255, 255, 255, 0.075);
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-hover: rgba(255, 255, 255, 0.08);
+  --color-article-bg: rgba(27, 31, 34, 0.85);
+
+  --font-sans: "Source Sans Pro", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Glassmorphism utility — used only for inner content cards */
+@utility glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@utility glass-hover {
+  background: var(--color-glass-hover);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient text utility — used only for inner content accents */
+@utility gradient-text {
+  background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient border - plain CSS class */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-accent-blue), var(--color-accent-purple));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* Accent glow utility */
+@utility glow {
+  box-shadow: 0 0 20px rgba(88, 166, 255, 0.15), 0 0 40px rgba(188, 140, 255, 0.1);
+}
+
+/* Vertical connecting line between header elements */
+.header-line {
+  display: block;
+  width: 1px;
+  background: var(--color-border);
+  margin: 0 auto;
+}
+
+/* Navigation item borders — responsive */
+.nav-item + .nav-item {
+  border-top: 1px solid white;
+}
+
+@media (min-width: 640px) {
+  .nav-item + .nav-item {
+    border-top: none;
+    border-left: 1px solid white;
+  }
+}
+
+/* Reduced motion: disable all animations/transitions */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visible styles for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
