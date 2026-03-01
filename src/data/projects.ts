@@ -13,6 +13,7 @@ export interface ProfessionalProject {
   description: string;
   tech: string[];
   impact: string;
+  article?: string;
 }
 
 export const personalProjects: PersonalProject[] = [
@@ -25,6 +26,15 @@ export const personalProjects: PersonalProject[] = [
     image: "/projects/ai-assessment-creator-demo.gif",
     github: "https://github.com/Andymendez100/AI-Assessment-Creator",
   },
+  {
+    title: "Agent Factory",
+    description:
+      "No-code AI agent platform for BPO operations. Team leads define a goal and select internal platforms — the AI autonomously logs into portals, scrapes employee data, and analyzes KPIs using a LangGraph ReAct loop with dynamically generated Playwright tools. Live execution streams to a React Flow canvas via WebSocket.",
+    tech: ["Python", "FastAPI", "LangGraph", "Playwright", "React", "PostgreSQL", "Celery", "Docker"],
+    impact: "True autonomous AI agent — not a step sequencer",
+    image: "/agent-factory-demo.gif",
+    github: "https://github.com/Andymendez100/Agent-Factory",
+  },
 ];
 
 export const professionalProjects: ProfessionalProject[] = [
@@ -34,13 +44,7 @@ export const professionalProjects: ProfessionalProject[] = [
       "End-to-end production voice AI system with full telephony integration, conversational AI pipeline, and custom Answering Machine Detection (AMD), automating outbound call workflows and significantly increasing live contact rates.",
     tech: ["Python", "Pipecat", "LiveKit", "AWS", "LangGraph", "Twilio"],
     impact: "Automated outbound call workflows at scale",
-  },
-  {
-    title: "Agent Factory",
-    description:
-      "Reusable AI agent workflow platform built with LangGraph, streamlining team lead operations across departments and accelerating automation adoption across the organization.",
-    tech: ["Python", "LangGraph", "TypeScript", "React", "Docker"],
-    impact: "Streamlined operations across departments",
+    article: "https://medium.com/p/5cf0886f3c32",
   },
   {
     title: "Local RAG System",
