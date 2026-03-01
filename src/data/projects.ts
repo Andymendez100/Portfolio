@@ -1,11 +1,33 @@
-export interface Project {
+export interface PersonalProject {
+  title: string;
+  description: string;
+  tech: string[];
+  impact: string;
+  image: string;
+  github?: string;
+  live?: string;
+}
+
+export interface ProfessionalProject {
   title: string;
   description: string;
   tech: string[];
   impact: string;
 }
 
-export const projects: Project[] = [
+export const personalProjects: PersonalProject[] = [
+  {
+    title: "AI Assessment Creator",
+    description:
+      "Full-stack app that transforms documents into AI-generated quizzes using GPT-4o. Features real-time streaming with Server-Sent Events, Retrieval-Augmented Generation for intelligent document processing, and three-level granular regeneration controls.",
+    tech: ["React", "Node.js", "Express", "MongoDB", "OpenAI", "Tailwind CSS"],
+    impact: "95% token reduction via RAG pipeline",
+    image: "/projects/ai-assessment-creator-demo.gif",
+    github: "https://github.com/Andymendez100/AI-Assessment-Creator",
+  },
+];
+
+export const professionalProjects: ProfessionalProject[] = [
   {
     title: "Production Voice AI Bot",
     description:
