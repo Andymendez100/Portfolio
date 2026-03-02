@@ -44,6 +44,15 @@ export const personalProjects: PersonalProject[] = [
     image: "/projects/rag-demo.gif",
     github: "https://github.com/Andymendez100/rag",
   },
+  {
+    title: "MeetBeats",
+    description:
+      "Music bot for Google Meet — like Discord music bots, but for meetings. Joins as a participant via Playwright, monitors chat for commands, and streams YouTube audio through a PulseAudio virtual microphone pipeline. Fully containerized with Docker.",
+    tech: ["TypeScript", "Node.js", "Playwright", "PulseAudio", "yt-dlp", "Docker"],
+    impact: "Full audio pipeline — YouTube to WebRTC",
+    image: "/projects/meetbeats-preview.svg",
+    github: "https://github.com/Andymendez100/MeetBeats",
+  },
 ];
 
 export const professionalProjects: ProfessionalProject[] = [
