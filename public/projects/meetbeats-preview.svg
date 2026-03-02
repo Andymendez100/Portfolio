@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c0c0f" />
+      <stop offset="100%" style="stop-color:#0f1117" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22c55e" />
+      <stop offset="100%" style="stop-color:#4ade80" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a855f7" />
+      <stop offset="100%" style="stop-color:#c084fc" />
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6" />
+      <stop offset="100%" style="stop-color:#22d3ee" />
+    </linearGradient>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.8" fill="#a855f7" opacity="0.12" />
+    </pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <style>
+      .wave1 { animation: wave 1.2s ease-in-out infinite; }
+      .wave2 { animation: wave 1.2s ease-in-out 0.1s infinite; }
+      .wave3 { animation: wave 1.2s ease-in-out 0.2s infinite; }
+      .wave4 { animation: wave 1.2s ease-in-out 0.3s infinite; }
+      .wave5 { animation: wave 1.2s ease-in-out 0.4s infinite; }
+      .wave6 { animation: wave 1.2s ease-in-out 0.5s infinite; }
+      .wave7 { animation: wave 1.2s ease-in-out 0.6s infinite; }
+      .wave8 { animation: wave 1.2s ease-in-out 0.7s infinite; }
+      .wave9 { animation: wave 1.2s ease-in-out 0.8s infinite; }
+      .wave10 { animation: wave 1.2s ease-in-out 0.15s infinite; }
+      .wave11 { animation: wave 1.2s ease-in-out 0.35s infinite; }
+      .wave12 { animation: wave 1.2s ease-in-out 0.55s infinite; }
+      .pulse { animation: pulseAnim 2s ease-in-out infinite; }
+      @keyframes wave {
+        0%, 100% { transform: scaleY(0.4); }
+        50% { transform: scaleY(1); }
+      }
+      @keyframes pulseAnim {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 1; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)" />
+  <rect width="800" height="450" fill="url(#dots)" />
+
+  <!-- Ambient glows -->
+  <ellipse cx="250" cy="200" rx="200" ry="150" fill="#a855f7" opacity="0.04" />
+  <ellipse cx="580" cy="250" rx="180" ry="140" fill="#22c55e" opacity="0.04" />
+
+  <!-- ======== MEET WINDOW (LEFT) ======== -->
+  <rect x="40" y="40" width="420" height="310" rx="10" fill="#141418" stroke="#a855f7" stroke-width="1" stroke-opacity="0.3" />
+
+  <!-- Title bar -->
+  <rect x="40" y="40" width="420" height="36" rx="10" fill="#a855f7" fill-opacity="0.08" />
+  <rect x="40" y="66" width="420" height="10" fill="#a855f7" fill-opacity="0.08" />
+  <circle cx="64" cy="58" r="5" fill="#a855f7" opacity="0.5" />
+  <circle cx="82" cy="58" r="5" fill="#a855f7" opacity="0.3" />
+  <circle cx="100" cy="58" r="5" fill="#a855f7" opacity="0.2" />
+  <text x="250" y="62" text-anchor="middle" font-family="'SF Pro', system-ui, sans-serif" font-size="11" fill="#a855f7" opacity="0.6" font-weight="500">Google Meet</text>
+
+  <!-- Video grid area -->
+  <!-- Participant 1 -->
+  <rect x="56" y="88" width="185" height="115" rx="6" fill="#1a1a22" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.08" />
+  <circle cx="148" cy="135" r="24" fill="#a855f7" opacity="0.15" stroke="#a855f7" stroke-width="1" stroke-opacity="0.3" />
+  <text x="148" y="139" text-anchor="middle" font-family="'SF Pro', system-ui, sans-serif" font-size="14" fill="#a855f7" opacity="0.7" font-weight="600">JD</text>
+  <rect x="68" y="185" width="50" height="10" rx="3" fill="#000000" fill-opacity="0.5" />
+  <text x="72" y="193" font-family="'SF Pro', system-ui, sans-serif" font-size="8" fill="#ffffff" opacity="0.7">John D.</text>
+
+  <!-- Participant 2 -->
+  <rect x="256" y="88" width="185" height="115" rx="6" fill="#1a1a22" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.08" />
+  <circle cx="348" cy="135" r="24" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.3" />
+  <text x="348" y="139" text-anchor="middle" font-family="'SF Pro', system-ui, sans-serif" font-size="14" fill="#3b82f6" opacity="0.7" font-weight="600">SM</text>
+  <rect x="268" y="185" width="56" height="10" rx="3" fill="#000000" fill-opacity="0.5" />
+  <text x="272" y="193" font-family="'SF Pro', system-ui, sans-serif" font-size="8" fill="#ffffff" opacity="0.7">Sarah M.</text>
+
+  <!-- MeetBeats Bot participant -->
+  <rect x="56" y="214" width="185" height="115" rx="6" fill="#1a1a22" stroke="#22c55e" stroke-width="1" stroke-opacity="0.4" />
+  <circle cx="148" cy="258" r="24" fill="#22c55e" opacity="0.15" stroke="#22c55e" stroke-width="1.5" stroke-opacity="0.5" filter="url(#glow)" />
+
+  <!-- Music note icon in bot circle -->
+  <g transform="translate(148, 258)">
+    <ellipse cx="-4" cy="5" rx="5" ry="3.5" fill="#22c55e" opacity="0.8" transform="rotate(-15)" />
+    <line x1="1" y1="4" x2="1" y2="-10" stroke="#22c55e" stroke-width="1.5" opacity="0.8" />
+    <path d="M1,-10 Q8,-14 6,-8" stroke="#22c55e" stroke-width="1.5" fill="none" opacity="0.8" />
+  </g>
+
+  <rect x="68" y="310" width="68" height="10" rx="3" fill="#000000" fill-opacity="0.5" />
+  <text x="72" y="318" font-family="'SF Mono', monospace" font-size="8" fill="#22c55e" opacity="0.9" font-weight="600">MeetBeats</text>
+
+  <!-- Audio waveform bars in bot tile -->
+  <g transform="translate(110, 282)">
+    <rect class="wave1" x="0" y="0" width="3" height="16" rx="1" fill="#22c55e" opacity="0.6" transform-origin="1.5px 8px" />
+    <rect class="wave2" x="6" y="0" width="3" height="16" rx="1" fill="#22c55e" opacity="0.7" transform-origin="7.5px 8px" />
+    <rect class="wave3" x="12" y="0" width="3" height="16" rx="1" fill="#22c55e" opacity="0.8" transform-origin="13.5px 8px" />
+    <rect class="wave4" x="18" y="0" width="3" height="16" rx="1" fill="#22c55e" opacity="0.7" transform-origin="19.5px 8px" />
+    <rect class="wave5" x="24" y="0" width="3" height="16" rx="1" fill="#22c55e" opacity="0.6" transform-origin="25.5px 8px" />
+    <rect class="wave6" x="30" y="0" width="3" height="16" rx="1" fill="#4ade80" opacity="0.7" transform-origin="31.5px 8px" />
+    <rect class="wave7" x="36" y="0" width="3" height="16" rx="1" fill="#4ade80" opacity="0.8" transform-origin="37.5px 8px" />
+    <rect class="wave8" x="42" y="0" width="3" height="16" rx="1" fill="#4ade80" opacity="0.7" transform-origin="43.5px 8px" />
+    <rect class="wave9" x="48" y="0" width="3" height="16" rx="1" fill="#4ade80" opacity="0.6" transform-origin="49.5px 8px" />
+    <rect class="wave10" x="54" y="0" width="3" height="16" rx="1" fill="#22c55e" opacity="0.5" transform-origin="55.5px 8px" />
+    <rect class="wave11" x="60" y="0" width="3" height="16" rx="1" fill="#22c55e" opacity="0.6" transform-origin="61.5px 8px" />
+    <rect class="wave12" x="66" y="0" width="3" height="16" rx="1" fill="#22c55e" opacity="0.5" transform-origin="67.5px 8px" />
+  </g>
+
+  <!-- Participant 4 -->
+  <rect x="256" y="214" width="185" height="115" rx="6" fill="#1a1a22" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.08" />
+  <circle cx="348" cy="258" r="24" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3" />
+  <text x="348" y="262" text-anchor="middle" font-family="'SF Pro', system-ui, sans-serif" font-size="14" fill="#f59e0b" opacity="0.7" font-weight="600">AK</text>
+  <rect x="268" y="310" width="50" height="10" rx="3" fill="#000000" fill-opacity="0.5" />
+  <text x="272" y="318" font-family="'SF Pro', system-ui, sans-serif" font-size="8" fill="#ffffff" opacity="0.7">Alex K.</text>
+
+  <!-- Meet bottom bar -->
+  <rect x="40" y="338" width="420" height="12" rx="0 0 10 10" fill="#1a1a22" />
+  <circle cx="230" cy="344" r="4" fill="#ef4444" opacity="0.6" />
+  <circle cx="250" cy="344" r="4" fill="#ffffff" opacity="0.2" />
+  <circle cx="270" cy="344" r="4" fill="#ffffff" opacity="0.2" />
+
+  <!-- ======== CHAT PANEL (RIGHT) ======== -->
+  <rect x="490" y="40" width="270" height="370" rx="10" fill="#141418" stroke="#22c55e" stroke-width="1" stroke-opacity="0.3" />
+
+  <!-- Chat header -->
+  <rect x="490" y="40" width="270" height="36" rx="10" fill="#22c55e" fill-opacity="0.08" />
+  <rect x="490" y="66" width="270" height="10" fill="#22c55e" fill-opacity="0.08" />
+  <text x="625" y="62" text-anchor="middle" font-family="'SF Pro', system-ui, sans-serif" font-size="11" fill="#22c55e" opacity="0.6" font-weight="500">Meeting Chat</text>
+
+  <!-- Chat message 1: user command -->
+  <g transform="translate(506, 92)">
+    <text font-family="'SF Pro', system-ui, sans-serif" font-size="8" fill="#a855f7" opacity="0.7" font-weight="600">John D.</text>
+    <rect y="10" width="180" height="22" rx="4" fill="#a855f7" fill-opacity="0.08" stroke="#a855f7" stroke-width="0.5" stroke-opacity="0.2" />
+    <text x="8" y="24" font-family="'SF Mono', monospace" font-size="9" fill="#c084fc" opacity="0.9">!play lofi hip hop beats</text>
+  </g>
+
+  <!-- Chat message 2: bot response -->
+  <g transform="translate(506, 138)">
+    <text font-family="'SF Mono', monospace" font-size="8" fill="#22c55e" opacity="0.8" font-weight="700">MeetBeats</text>
+    <rect y="10" width="238" height="36" rx="4" fill="#22c55e" fill-opacity="0.06" stroke="#22c55e" stroke-width="0.5" stroke-opacity="0.2" />
+    <text x="8" y="24" font-family="'SF Pro', system-ui, sans-serif" font-size="8.5" fill="#4ade80" opacity="0.8">Now playing: lofi hip hop radio</text>
+    <text x="8" y="38" font-family="'SF Pro', system-ui, sans-serif" font-size="8" fill="#ffffff" opacity="0.4">Duration: 3:42</text>
+  </g>
+
+  <!-- Chat message 3: another user -->
+  <g transform="translate(506, 198)">
+    <text font-family="'SF Pro', system-ui, sans-serif" font-size="8" fill="#3b82f6" opacity="0.7" font-weight="600">Sarah M.</text>
+    <rect y="10" width="200" height="22" rx="4" fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-width="0.5" stroke-opacity="0.2" />
+    <text x="8" y="24" font-family="'SF Mono', monospace" font-size="9" fill="#60a5fa" opacity="0.9">!play chill jazz piano</text>
+  </g>
+
+  <!-- Chat message 4: bot queue response -->
+  <g transform="translate(506, 244)">
+    <text font-family="'SF Mono', monospace" font-size="8" fill="#22c55e" opacity="0.8" font-weight="700">MeetBeats</text>
+    <rect y="10" width="238" height="36" rx="4" fill="#22c55e" fill-opacity="0.06" stroke="#22c55e" stroke-width="0.5" stroke-opacity="0.2" />
+    <text x="8" y="24" font-family="'SF Pro', system-ui, sans-serif" font-size="8.5" fill="#4ade80" opacity="0.8">Added to queue (#2)</text>
+    <text x="8" y="38" font-family="'SF Pro', system-ui, sans-serif" font-size="8" fill="#ffffff" opacity="0.4">chill jazz piano - 4:15</text>
+  </g>
+
+  <!-- Chat message 5: volume command -->
+  <g transform="translate(506, 304)">
+    <text font-family="'SF Pro', system-ui, sans-serif" font-size="8" fill="#f59e0b" opacity="0.7" font-weight="600">Alex K.</text>
+    <rect y="10" width="120" height="22" rx="4" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-width="0.5" stroke-opacity="0.2" />
+    <text x="8" y="24" font-family="'SF Mono', monospace" font-size="9" fill="#fbbf24" opacity="0.9">!volume 75</text>
+  </g>
+
+  <!-- Chat message 6: bot volume response -->
+  <g transform="translate(506, 346)">
+    <text font-family="'SF Mono', monospace" font-size="8" fill="#22c55e" opacity="0.8" font-weight="700">MeetBeats</text>
+    <rect y="10" width="160" height="22" rx="4" fill="#22c55e" fill-opacity="0.06" stroke="#22c55e" stroke-width="0.5" stroke-opacity="0.2" />
+    <text x="8" y="24" font-family="'SF Pro', system-ui, sans-serif" font-size="8.5" fill="#4ade80" opacity="0.8">Volume set to 75%</text>
+  </g>
+
+  <!-- ======== NOW PLAYING BAR (BOTTOM) ======== -->
+  <rect x="40" y="396" width="720" height="36" rx="6" fill="#141418" stroke="#22c55e" stroke-width="0.5" stroke-opacity="0.25" />
+
+  <!-- Playing indicator -->
+  <circle cx="60" cy="414" r="5" fill="#22c55e" opacity="0.8" class="pulse" />
+
+  <!-- Song info -->
+  <text x="74" y="410" font-family="'SF Pro', system-ui, sans-serif" font-size="8" fill="#ffffff" opacity="0.4">NOW PLAYING</text>
+  <text x="74" y="424" font-family="'SF Pro', system-ui, sans-serif" font-size="10" fill="#4ade80" opacity="0.8" font-weight="500">lofi hip hop radio - beats to relax/study to</text>
+
+  <!-- Progress bar -->
+  <rect x="430" y="412" width="160" height="3" rx="1.5" fill="#ffffff" opacity="0.08" />
+  <rect x="430" y="412" width="72" height="3" rx="1.5" fill="url(#greenGrad)" opacity="0.7" />
+
+  <!-- Time -->
+  <text x="600" y="417" font-family="'SF Mono', monospace" font-size="8" fill="#ffffff" opacity="0.4">1:38 / 3:42</text>
+
+  <!-- Queue count -->
+  <rect x="680" y="406" width="60" height="16" rx="4" fill="#22c55e" fill-opacity="0.1" stroke="#22c55e" stroke-width="0.5" stroke-opacity="0.3" />
+  <text x="710" y="417" text-anchor="middle" font-family="'SF Mono', monospace" font-size="8" fill="#22c55e" opacity="0.7">Queue: 2</text>
+
+  <!-- Corner accents -->
+  <line x1="0" y1="20" x2="25" y2="20" stroke="#a855f7" stroke-width="1" stroke-opacity="0.3" />
+  <line x1="15" y1="0" x2="15" y2="25" stroke="#a855f7" stroke-width="1" stroke-opacity="0.3" />
+  <line x1="800" y1="20" x2="775" y2="20" stroke="#22c55e" stroke-width="1" stroke-opacity="0.3" />
+  <line x1="785" y1="0" x2="785" y2="25" stroke="#22c55e" stroke-width="1" stroke-opacity="0.3" />
+  <line x1="0" y1="430" x2="25" y2="430" stroke="#a855f7" stroke-width="1" stroke-opacity="0.3" />
+  <line x1="15" y1="425" x2="15" y2="450" stroke="#a855f7" stroke-width="1" stroke-opacity="0.3" />
+  <line x1="800" y1="430" x2="775" y2="430" stroke="#22c55e" stroke-width="1" stroke-opacity="0.3" />
+  <line x1="785" y1="425" x2="785" y2="450" stroke="#22c55e" stroke-width="1" stroke-opacity="0.3" />
+</svg>
