@@ -10,8 +10,8 @@ export default function About() {
     <div>
       <SectionHeading
         eyebrow="About"
-        heading="Who I Am"
-        description="Results-driven engineering leader passionate about AI and cloud architecture."
+        heading="How I Lead"
+        description="Technology leader focused on teams, strategy, and measurable business outcomes."
       />
 
       <div className="grid gap-12 md:grid-cols-[280px_1fr]">

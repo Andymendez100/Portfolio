@@ -8,9 +8,9 @@ export default function Skills() {
   return (
     <div>
       <SectionHeading
-        eyebrow="Skills"
-        heading="Tech Stack"
-        description="Languages, frameworks, and tools I use to build production systems."
+        eyebrow="Expertise"
+        heading="Areas of Impact"
+        description="Where I drive results across technology organizations."
       />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

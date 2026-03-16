@@ -1,12 +1,15 @@
 export const resume = {
   name: "Andy Mendez",
-  title: "Director of IT | AI & Software Engineering Leader",
+  title: "Director of IT | AI Strategy & Digital Transformation",
   location: "Los Angeles, California",
   email: "andy@andymendez.dev",
   github: "https://github.com/Andymendez100",
   linkedin: "https://www.linkedin.com/in/andyamendez/",
-  bio: `Technology executive with 10+ years of progressive experience in AI strategy, software engineering, IT leadership, and digital transformation. Proven track record of engineering production AI systems, leading cloud migrations, and driving 60%+ efficiency improvements across high-volume contact center operations. Known for aligning technology roadmaps with business objectives, building high-performing cross-functional teams, and delivering scalable, secure infrastructure.`,
+  bio: `Technology executive with 10+ years leading IT organizations, AI strategy, and digital transformation initiatives. I build and lead cross-functional teams that deliver measurable business outcomes — from engineering production AI systems that automate thousands of daily workflows, to driving cloud migrations that cut operational costs by 30%. My focus is aligning technology roadmaps with business objectives, scaling secure infrastructure, and creating the conditions for teams to do their best work.`,
   stats: [
-    { label: "Years Experience", value: "10+" },
+    { label: "Years in Technology Leadership", value: "10+" },
+    { label: "Operational Cost Reduction", value: "30%" },
+    { label: "Efficiency Gains Delivered", value: "60%+" },
+    { label: "Platform Uptime Achieved", value: "99.9%" },
   ],
 } as const;

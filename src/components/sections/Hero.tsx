@@ -6,11 +6,11 @@ import { fadeInUp } from "../../lib/animations";
 import StatCard from "../ui/StatCard";
 
 const taglines = [
-  "Building Voice AI Systems",
-  "Architecting Cloud Infrastructure",
   "Leading Digital Transformation",
-  "Designing Multi-Agent Platforms",
-  "Engineering RAG Pipelines",
+  "Driving AI-Powered Growth",
+  "Scaling Enterprise Infrastructure",
+  "Building High-Performing Teams",
+  "Aligning Technology with Business Strategy",
 ];
 
 export default function Hero() {
@@ -27,6 +27,7 @@ export default function Hero() {
   return (
     <section id="hero" className="relative flex items-center">
       <div className="mx-auto w-full max-w-6xl px-6 pt-20 pb-10">
+        <div className="grid items-center gap-12 md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_320px]">
         <div className="max-w-3xl">
           {/* Eyebrow */}
           <motion.p
@@ -58,7 +59,7 @@ export default function Hero() {
             custom={2}
             className="mb-6 text-2xl font-semibold gradient-text md:text-3xl"
           >
-            AI & Software Engineering Leader
+            Technology Executive | AI Strategy & Digital Transformation
           </motion.p>
 
           {/* Bio */}
@@ -69,8 +70,8 @@ export default function Hero() {
             custom={3}
             className="mb-8 max-w-xl text-lg leading-relaxed text-fg"
           >
-            Building production Voice AI systems, multi-agent platforms, and
-            leading cloud infrastructure modernization for Fortune 500 clients.
+            Leading teams that deliver enterprise AI systems, cloud migrations,
+            and operational transformation for high-volume organizations.
           </motion.p>
 
           {/* CTA buttons */}
@@ -131,6 +132,25 @@ export default function Hero() {
               </motion.p>
             </AnimatePresence>
           </motion.div>
+        </div>
+
+        {/* Headshot */}
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          custom={2}
+          className="hidden md:flex justify-center"
+        >
+          <div className="relative h-72 w-72 lg:h-80 lg:w-80 overflow-hidden rounded-2xl gradient-border">
+            <img
+              src="/images/headshot.jpg"
+              alt="Andy Mendez"
+              className="h-full w-full object-cover object-top"
+            />
+            <div className="absolute -inset-1 -z-10 rounded-2xl bg-gradient-to-br from-accent-blue/20 to-accent-cyan/20 blur-xl" />
+          </div>
+        </motion.div>
         </div>
       </div>
     </section>
