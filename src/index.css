@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #09090b;
-  --color-bg-card: #0c0c0f;
-  --color-bg-elevated: #141418;
-  --color-fg: #a1a1aa;
-  --color-fg-muted: #52525b;
-  --color-fg-bold: #fafafa;
-  --color-accent-blue: #3b82f6;
-  --color-accent-cyan: #22d3ee;
+  --color-bg: #0a0e1a;
+  --color-bg-card: #0f1424;
+  --color-bg-elevated: #161c30;
+  --color-fg: #b0b0be;
+  --color-fg-muted: #5c5c6e;
+  --color-fg-bold: #f5f1ea;
+  --color-accent-blue: #c8952e;
+  --color-accent-cyan: #e8c547;
   --color-border: rgba(255, 255, 255, 0.06);
   --color-border-bright: rgba(255, 255, 255, 0.12);
   --color-glass: rgba(255, 255, 255, 0.03);
@@ -76,7 +76,7 @@ body {
 
 /* Accent glow */
 @utility glow {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15), 0 0 40px rgba(34, 211, 238, 0.1);
+  box-shadow: 0 0 20px rgba(200, 149, 46, 0.15), 0 0 40px rgba(232, 197, 71, 0.1);
 }
 
 /* Dot grid background */
