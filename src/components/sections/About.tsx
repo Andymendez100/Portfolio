@@ -14,20 +14,7 @@ export default function About() {
         description="Technology leader focused on teams, strategy, and measurable business outcomes."
       />
 
-      <div className="grid gap-12 md:grid-cols-[280px_1fr]">
-        {/* Headshot */}
-        <motion.div variants={fadeInUp} className="flex justify-center md:justify-start">
-          <div className="relative h-64 w-64 overflow-hidden rounded-2xl gradient-border">
-            <img
-              src="/images/headshot.jpg"
-              alt="Andy Mendez"
-              className="h-full w-full object-cover object-top"
-            />
-            {/* Gradient glow behind */}
-            <div className="absolute -inset-1 -z-10 rounded-2xl bg-gradient-to-br from-accent-blue/20 to-accent-cyan/20 blur-xl" />
-          </div>
-        </motion.div>
-
+      <div>
         {/* Bio + info */}
         <motion.div variants={fadeInUp} className="space-y-6">
           <p className="text-lg leading-relaxed text-fg">{resume.bio}</p>
