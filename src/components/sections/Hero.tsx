@@ -25,8 +25,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative flex min-h-screen items-center">
-      <div className="mx-auto w-full max-w-6xl px-6 py-32">
+    <section id="hero" className="relative flex items-center">
+      <div className="mx-auto w-full max-w-6xl px-6 pt-20 pb-10">
         <div className="max-w-3xl">
           {/* Eyebrow */}
           <motion.p
@@ -79,7 +79,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             custom={4}
-            className="mb-16 flex flex-wrap gap-4"
+            className="mb-10 flex flex-wrap gap-4"
           >
             <a
               href="#contact"
@@ -103,7 +103,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             custom={5}
-            className="mb-12 flex flex-wrap gap-8"
+            className="mb-6 flex flex-wrap gap-8"
           >
             {resume.stats.map((stat) => (
               <StatCard key={stat.label} value={stat.value} label={stat.label} />

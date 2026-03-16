@@ -51,7 +51,7 @@ export default function Contact() {
       <SectionHeading
         eyebrow="Contact"
         heading="Get in Touch"
-        description="Have a project in mind or want to discuss AI strategy? Let's connect."
+        description="Open to Director and VP-level opportunities in AI, cloud infrastructure, and engineering leadership. Let's connect."
       />
 
       <div className="grid gap-12 md:grid-cols-2">
