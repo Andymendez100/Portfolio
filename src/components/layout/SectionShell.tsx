@@ -14,7 +14,7 @@ export default function SectionShell({
   className = "",
 }: SectionShellProps) {
   return (
-    <section id={id} className={`relative py-24 md:py-32 ${className}`}>
+    <section id={id} className={`relative py-12 md:py-16 ${className}`}>
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
           variants={staggerContainer}

@@ -15,6 +15,7 @@ interface APIGatewayEvent {
   body: string | null;
   httpMethod: string;
   headers: Record<string, string>;
+  isBase64Encoded?: boolean;
 }
 
 function isValidEmail(email: string): boolean {
@@ -39,6 +40,9 @@ export async function handler(event: APIGatewayEvent) {
   }
 
   try {
+    if (event.isBase64Encoded && event.body) {
+      event.body = Buffer.from(event.body, "base64").toString("utf-8");
+    }
     if (!event.body) {
       return {
         statusCode: 400,
