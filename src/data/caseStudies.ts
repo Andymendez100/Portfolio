@@ -49,8 +49,8 @@ export const caseStudies: CaseStudy[] = [
       "Jira",
     ],
     results: [
-      { value: "375", label: "agent-built branches merged" },
-      { value: "19", label: "repositories it works across" },
+      { value: "380+", label: "agent pull requests merged" },
+      { value: "16", label: "repositories it works across" },
       { value: "0", label: "merges made by the agent itself" },
     ],
     sections: [
@@ -85,14 +85,14 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Results",
         paragraphs: [
-          "The first version works across 19 repositories and has merged 375 agent-built branches, every one approved by a person. The approach then moved to a second team as version two. There, labeling an issue starts one run that builds the change, QAs it in a headless browser, runs tests and a Codex pre-check, opens the pull request, answers review findings until they're clean, and pings the team in Slack.",
-          "That second team hit a real limit: the hosted reviewer's rate limits stalled reviews, and some were skipped. I replaced it with an in-house reviewer and made it a required merge check, so a pull request can't merge without a completed review.",
+          "The first version has merged more than 380 pull requests across 16 repositories, every one approved by a person. The approach then moved to a second team as version two. There, labeling an issue starts one run that builds the change, QAs it in a headless browser, runs tests and a Codex pre-check, opens the pull request, answers review findings until they're clean, and pings the team in Slack.",
+          "That second team hit a real limit: the hosted reviewer's rate limits slowed reviews down. I replaced it with an in-house reviewer and made it a required merge check, so a pull request can't merge without a completed review.",
         ],
       },
       {
         heading: "What I learned",
         paragraphs: [
-          "The harness can fail in ways the code doesn't. Claude Code moved long shell commands to the background, so the agent exited while a preview deploy kept running. I raised the timeouts to 40 and 50 minutes and turned off background tasks in respond mode. I now test agent runs against long steps, not just short ones.",
+          "The harness can fail in ways the code doesn't. Claude Code moved long shell commands to the background, so the agent exited while a preview deploy kept running. I raised the time limits, up to 40 minutes for a single long step, and turned off background tasks outside build runs. I now test agent runs against long steps, not just short ones.",
           "Third-party review tools are a dependency with their own rate limits. If a merge gate depends on one, the pipeline stalls when that tool does. Own the gate, or define a timeout and a fallback.",
           "Stop states matter as much as success states. A blocked message with a reason gives a reviewer something to act on. Silence doesn't.",
         ],
@@ -130,8 +130,8 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The problem",
         paragraphs: [
-          "A high-volume contact center needed a voice agent for both outbound and inbound calls. Each call follows a branching script, and the person on the line can interrupt, ask questions, change their mind, or ask for something that must be honored right away. Some of those requests, such as do-not-call, wrong person, transfer, or callback, carry compliance weight. Voicemail and call screening have to be handled correctly too, or the bot talks over a machine or a live person.",
-          "I started with Pipecat prototypes in mid-2025. They proved the pieces could talk to a phone line, but they didn't answer the hard questions: how a script changes safely at runtime, how the bot tells a machine from a person, and how a team ships changes to live calls without breaking them. In October 2025 I moved the work to LiveKit Agents.",
+          "A contact center needed a voice agent for both outbound and inbound calls. Each call follows a branching script, and the person on the line can interrupt, ask questions, change their mind, or ask for something that must be honored right away. Some of those requests, such as do-not-call, wrong person, transfer, or callback, carry compliance weight. Voicemail and call screening have to be handled correctly too, or the bot talks over a machine or a live person.",
+          "I started with Pipecat prototypes in 2025. They proved the pieces could talk to a phone line, but they didn't answer the hard questions: how a script changes safely at runtime, how the bot tells a machine from a person, and how a team ships changes to live calls without breaking them. So I moved the work to LiveKit Agents.",
         ],
       },
       {
@@ -161,7 +161,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Results",
         paragraphs: [
-          "The agent runs in production. CI deploys to production on every push to main, and QA gets every merge. The test suites include replay tests modeled on real call patterns and end-to-end tests that check which script step and outcome code a call ends on. Several production fixes landed with a reproducing test first, such as a hangup that arrived before the final transcript.",
+          "The agent runs in production. Merging to main deploys to production automatically, and the same merge syncs to QA. The test suites include replay tests modeled on real call patterns and end-to-end tests that check which script step and outcome code a call ends on. Several production fixes landed with a reproducing test first, such as a hangup that arrived before the final transcript.",
           "I can't share call volumes or business results here, so the evidence I can show is the engineering and the release process.",
         ],
       },
@@ -176,10 +176,10 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "operations-automation",
-    title: "Auditing a contact center's spreadsheets before automating them",
+    title: "Auditing an operations team's spreadsheets before automating them",
     domain: "Operations strategy",
     summary:
-      "Operations ran on 109 live spreadsheets that nobody had mapped. I audited all of them, sorted every workflow into four tiers from eliminate to governed AI, and shipped the fixes that stop data loss first.",
+      "Operations work ran through 109 live spreadsheets. I mapped all of them, sorted every workflow into four tiers from eliminate to governed AI, and shipped the fixes that stop data loss first.",
     role: "Led the audit and strategy, and wrote the executive brief",
     period: "2026",
     stack: [
@@ -204,9 +204,9 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "The problem",
         paragraphs: [
-          "The contact center ran on spreadsheets. Schedules, attendance, billing timesheets, KPI rollups, and client reports lived in Google Sheets that people had built over years to work around gaps in the core operations app. Everyone knew the team relied on spreadsheets, but nobody had counted them or traced how they fed each other.",
+          "Much of the operations work ran through spreadsheets. Schedules, attendance, billing timesheets, KPI rollups, and client reports lived in Google Sheets that people had built over years to work around gaps in the core operations app. Everyone knew the team relied on spreadsheets, but no one had a full map of them or of how they fed each other.",
           "I started with a full inventory: about 6,900 files, of which 109 Google Sheets had changed in the past 90 days. Across 19 priority workbooks, the cell count was about 58 million. Some sheets had outgrown the export tools, and one hub sheet fed a dozen downstream trackers. A break in that hub would cascade through staffing, billing, and reporting at once.",
-          "A code audit showed why the workarounds existed: several workflows the app should have handled had gaps or bugs, so people built around them. The team wasn't wrong to build spreadsheets. They were compensating for software that let them down.",
+          "A code audit showed why the workarounds existed: several workflows needed things the app didn't do yet, so people built around them. The spreadsheets were filling real gaps, and those gaps were the thing to fix.",
         ],
       },
       {

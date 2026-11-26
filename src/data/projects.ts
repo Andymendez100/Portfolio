@@ -60,13 +60,13 @@ export const selectedWork: SelectedWork[] = [
     domain: "Engineering productivity",
     title: "AI coding agents",
     summary: "Turn a ticket into a tested, reviewed pull request for a person to merge.",
-    metric: { value: "375", label: "agent-built branches merged" },
+    metric: { value: "380+", label: "agent pull requests merged" },
     flow: ["Ticket", "Agent writes code", "Browser tests", "Code review", "Pull request"],
     highlight: 1,
     branch: "A person approves every merge",
     description:
       "A ticket goes in. An agent writes the change, tests it in a real browser, works through code review, and opens a pull request for a person to merge. I built two of these for two teams, plus an in-house pull request reviewer that replaced a paid service.",
-    proof: "375 agent-built branches merged across 19 repositories.",
+    proof: "380+ agent pull requests merged across 16 repositories.",
     tech: ["TypeScript", "Python", "Claude Code", "Codex", "GitHub Actions", "AWS ECS", "Terraform"],
     caseStudy: "ai-coding-agents",
   },
@@ -75,12 +75,12 @@ export const selectedWork: SelectedWork[] = [
     title: "Lead-scoring model",
     summary: "Predicts who will answer and when, so the dialer calls the right people at the right time.",
     metric: { value: "0.90", label: "AUC on held-out data" },
-    flow: ["Millions of past calls", "Model scores each lead", "Best time to call", "Dialer"],
+    flow: ["Past call history", "Model scores each lead", "Best time to call", "Dialer"],
     highlight: 1,
     branch: "Retrains weekly and ships only if it beats the baseline",
     description:
       "Predicts how likely each lead is to answer, by time of day and attempt number, so the dialer calls the right people at the right time. It retrains every week and only ships when it beats a simple baseline.",
-    proof: "Trained on millions of past calls. Built alone.",
+    proof: "Built alone, from data pipeline to weekly retraining.",
     tech: ["Python", "XGBoost", "MySQL", "AWS ECS Fargate"],
   },
   {
@@ -115,7 +115,7 @@ export const openSource: OpenSourceProject[] = [
   {
     title: "Agent Factory",
     description:
-      "Team leads describe a goal, and an AI agent logs into internal portals, gathers the data, and reports on it.",
+      "Team leads describe a goal, and an AI agent logs into web portals, gathers the data, and reports on it.",
     image: "/agent-factory-demo.gif",
     github: "https://github.com/Andymendez100/Agent-Factory",
   },
