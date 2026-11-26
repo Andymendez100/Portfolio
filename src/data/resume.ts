@@ -1,12 +1,10 @@
 export const resume = {
   name: "Andy Mendez",
-  title: "Director of IT | AI & Software Engineering Leader",
+  headline: "AI engineering leader",
+  summary:
+    "10+ years in software. I've led a 16+ person technology organization, and I build the AI my teams run on, including coding agents that now write most changes in our core apps.",
   location: "Los Angeles, California",
   email: "andy@andymendez.dev",
   github: "https://github.com/Andymendez100",
   linkedin: "https://www.linkedin.com/in/andyamendez/",
-  bio: `Technology executive with 10+ years of progressive experience in AI strategy, software engineering, IT leadership, and digital transformation. Proven track record of engineering production AI systems, leading cloud migrations, and driving 60%+ efficiency improvements across high-volume contact center operations. Known for aligning technology roadmaps with business objectives, building high-performing cross-functional teams, and delivering scalable, secure infrastructure.`,
-  stats: [
-    { label: "Years Experience", value: "10+" },
-  ],
 } as const;

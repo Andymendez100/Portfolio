@@ -1,69 +1,38 @@
-export interface SkillCategory {
+export interface SkillGroup {
   name: string;
   skills: string[];
 }
 
-export const skillCategories: SkillCategory[] = [
+export const skillGroups: SkillGroup[] = [
   {
-    name: "Languages",
-    skills: ["TypeScript", "JavaScript", "Python", "HTML5", "CSS"],
-  },
-  {
-    name: "AI / ML",
+    name: "AI",
     skills: [
-      "LangGraph",
-      "LangChain",
-      "vLLM",
-      "Ollama",
-      "Pipecat",
-      "LiveKit",
-      "OpenAI API",
-      "Anthropic API",
-      "Gemini API",
-      "AWS Bedrock",
-      "Hugging Face",
-      "PaddleOCR",
+      "LLM agents",
+      "Voice AI",
+      "RAG and document AI",
+      "Fine-tuning and evals",
+      "Machine learning (XGBoost)",
+      "Claude Code and Codex automation",
     ],
   },
   {
-    name: "Frontend",
-    skills: [
-      "React",
-      "Tailwind CSS",
-      "Three.js",
-      "GraphQL",
-      "Material-UI",
-      "WebSockets",
-    ],
+    name: "Engineering",
+    skills: ["Python", "TypeScript", "C# / .NET", "React", "FastAPI", "Node.js", "PostgreSQL", "MySQL", "MongoDB", "Redis"],
   },
   {
-    name: "Backend & Cloud",
-    skills: [
-      "Node.js",
-      "MongoDB",
-      "MySQL",
-      "Docker",
-      "Kubernetes",
-      "AWS",
-      "GCP",
-      "Lambda",
-      "EC2",
-      "S3",
-      "SQS",
-      "Redis",
-    ],
+    name: "Cloud",
+    skills: ["AWS", "OpenTofu / Terraform", "ECS Fargate", "Lambda", "GitHub Actions", "Docker"],
   },
   {
-    name: "DevOps & Tools",
-    skills: [
-      "CI/CD",
-      "Linux",
-      "Nginx",
-      "GitHub",
-      "GitLab",
-      "OpenVPN",
-      "SentinelOne",
-      "Agile",
-    ],
+    name: "Regulated systems",
+    skills: ["HIPAA", "Multi-tenant data isolation", "Audit trails", "SAML single sign-on", "Healthcare billing (837 / 835)", "TCPA"],
+  },
+  {
+    name: "Contact center",
+    skills: ["Twilio", "Genesys Cloud", "LiveKit", "Dialer and call routing"],
+  },
+  {
+    name: "Leadership",
+    skills: ["Led a 16+ person technology org", "Hiring and mentoring", "Budgets and vendors", "Roadmaps", "AI-first engineering process"],
   },
 ];

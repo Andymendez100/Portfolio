@@ -1,9 +1,6 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Send, Github, Linkedin, Mail, MapPin, Loader2 } from "lucide-react";
 import { resume } from "../../data/resume";
-import { fadeInUp } from "../../lib/animations";
-import SectionHeading from "../ui/SectionHeading";
+import Section, { Row } from "../layout/Section";
 
 interface FormData {
   name: string;
@@ -13,12 +10,16 @@ interface FormData {
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
+const fields = [
+  { id: "name", label: "Name", type: "text", autoComplete: "name" },
+  { id: "email", label: "Email", type: "email", autoComplete: "email" },
+] as const;
+
+const inputClasses =
+  "mt-2 w-full rounded-sm border border-line bg-transparent px-3 py-2.5 text-ink transition-colors focus:border-accent focus:outline-none";
+
 export default function Contact() {
-  const [form, setForm] = useState<FormData>({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [form, setForm] = useState<FormData>({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<FormStatus>("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -26,14 +27,11 @@ export default function Contact() {
     setStatus("sending");
 
     try {
-      const res = await fetch(
-        import.meta.env.VITE_CONTACT_API_URL || "/api/contact",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
-        },
-      );
+      const res = await fetch(import.meta.env.VITE_CONTACT_API_URL || "/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
       if (!res.ok) throw new Error("Failed to send");
       setStatus("success");
@@ -43,139 +41,70 @@ export default function Contact() {
     }
   };
 
-  const inputClasses =
-    "w-full rounded-lg border border-border bg-bg-card px-4 py-3 text-sm text-fg-bold placeholder:text-fg-muted/50 transition-colors focus:border-accent-blue focus:outline-none";
-
   return (
-    <div>
-      <SectionHeading
-        eyebrow="Contact"
-        heading="Get in Touch"
-        description="Open to Director and VP-level opportunities in AI, cloud infrastructure, and engineering leadership. Let's connect."
-      />
+    <Section id="contact" title="Contact">
+      <Row>
+        <p className="text-xl text-ink">
+          I'm open to AI engineering leadership roles: Head of AI, and Director or VP of Engineering.
+        </p>
+        <p className="mt-4">
+          Email{" "}
+          <a href={`mailto:${resume.email}`} className="link">
+            {resume.email}
+          </a>{" "}
+          or send a message here.
+        </p>
 
-      <div className="grid gap-12 md:grid-cols-2">
-        {/* Contact form */}
-        <motion.form
-          variants={fadeInUp}
-          onSubmit={handleSubmit}
-          className="space-y-5"
-        >
-          <div>
-            <label
-              htmlFor="name"
-              className="mb-2 block text-sm font-medium text-fg-bold"
-            >
-              Name
-            </label>
-            <input
-              id="name"
-              type="text"
-              required
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className={inputClasses}
-              placeholder="Your name"
-            />
+        <form onSubmit={handleSubmit} className="mt-10 space-y-5">
+          <div className="grid gap-5 sm:grid-cols-2">
+            {fields.map((field) => (
+              <label key={field.id} className="block text-sm text-muted">
+                {field.label}
+                <input
+                  id={field.id}
+                  type={field.type}
+                  autoComplete={field.autoComplete}
+                  required
+                  value={form[field.id]}
+                  onChange={(e) => setForm({ ...form, [field.id]: e.target.value })}
+                  className={inputClasses}
+                />
+              </label>
+            ))}
           </div>
 
-          <div>
-            <label
-              htmlFor="email"
-              className="mb-2 block text-sm font-medium text-fg-bold"
-            >
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              required
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className={inputClasses}
-              placeholder="your@email.com"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="message"
-              className="mb-2 block text-sm font-medium text-fg-bold"
-            >
-              Message
-            </label>
+          <label className="block text-sm text-muted">
+            Message
             <textarea
               id="message"
               required
               rows={5}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className={`${inputClasses} resize-none`}
-              placeholder="Your message..."
+              className={`${inputClasses} resize-y`}
             />
-          </div>
+          </label>
 
-          <button
-            type="submit"
-            disabled={status === "sending"}
-            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-accent-blue to-accent-cyan px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
-          >
-            {status === "sending" ? (
-              <Loader2 size={16} className="animate-spin" />
-            ) : (
-              <Send size={16} />
-            )}
-            {status === "sending" ? "Sending..." : "Send Message"}
-          </button>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="rounded-sm bg-accent px-5 py-2.5 font-semibold text-bg transition-opacity hover:opacity-90 disabled:opacity-60"
+            >
+              {status === "sending" ? "Sending message…" : "Send message"}
+            </button>
 
-          {status === "success" && (
-            <p className="text-sm text-green-400">Message sent successfully!</p>
-          )}
-          {status === "error" && (
-            <p className="text-sm text-red-400">
-              Failed to send. Please try again or email me directly.
+            <p role="status" className="text-sm">
+              {status === "success" && <span className="text-ink">Message sent. I'll reply by email.</span>}
+              {status === "error" && (
+                <span className="text-ink">
+                  Your message didn't send. Email me at {resume.email} instead.
+                </span>
+              )}
             </p>
-          )}
-        </motion.form>
-
-        {/* Contact info */}
-        <motion.div variants={fadeInUp} className="space-y-6">
-          <div className="rounded-xl border border-border bg-bg-card p-6 space-y-4">
-            <div className="flex items-center gap-3 text-sm text-fg">
-              <MapPin size={18} className="text-accent-blue flex-shrink-0" />
-              {resume.location}
-            </div>
-            <div className="flex items-center gap-3 text-sm text-fg">
-              <Mail size={18} className="text-accent-blue flex-shrink-0" />
-              <a
-                href={`mailto:${resume.email}`}
-                className="transition-colors hover:text-fg-bold"
-              >
-                {resume.email}
-              </a>
-            </div>
           </div>
-
-          <div className="flex gap-3">
-            {[
-              { icon: Github, href: resume.github, label: "GitHub" },
-              { icon: Linkedin, href: resume.linkedin, label: "LinkedIn" },
-            ].map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm text-fg-muted transition-all hover:border-border-bright hover:text-fg-bold"
-                aria-label={label}
-              >
-                <Icon size={16} />
-                {label}
-              </a>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </div>
+        </form>
+      </Row>
+    </Section>
   );
 }
