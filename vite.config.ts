@@ -10,14 +10,4 @@ export default defineConfig({
       "@": resolve(__dirname, "src"),
     },
   },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          shiki: ["shiki"],
-          "framer-motion": ["framer-motion"],
-        },
-      },
-    },
-  },
 });

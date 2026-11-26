@@ -1,95 +1,95 @@
-export interface PersonalProject {
+// Selected work is labeled by industry, not employer. Keep client, company,
+// and product names out of this file: it ships to a public site.
+export interface SelectedWork {
+  domain: string;
   title: string;
   description: string;
+  proof: string;
   tech: string[];
-  impact: string;
-  image: string;
-  github?: string;
-  live?: string;
-}
-
-export interface ProfessionalProject {
-  title: string;
-  description: string;
-  tech: string[];
-  impact: string;
   article?: string;
 }
 
-export const personalProjects: PersonalProject[] = [
+export interface OpenSourceProject {
+  title: string;
+  description: string;
+  github: string;
+}
+
+export const selectedWork: SelectedWork[] = [
   {
-    title: "AI Assessment Creator",
+    domain: "Healthcare",
+    title: "AI referral intake for physical therapy clinics",
     description:
-      "Full-stack app that transforms documents into AI-generated quizzes using GPT-4o. Features real-time streaming with Server-Sent Events, Retrieval-Augmented Generation for intelligent document processing, and three-level granular regeneration controls.",
-    tech: ["React", "Node.js", "Express", "MongoDB", "OpenAI", "Tailwind CSS"],
-    impact: "95% token reduction via RAG pipeline",
-    image: "/projects/ai-assessment-creator-demo.gif",
-    github: "https://github.com/Andymendez100/AI-Assessment-Creator",
+      "Faxed and emailed referrals are read by AI, checked against the patient's insurance, and entered into the clinic's records system. Anything the AI is unsure of goes to a person instead of guessing. It has since grown into billing, scheduling, and patient messaging.",
+    proof:
+      "In daily use by clinic staff and built to HIPAA requirements. Made about 90% of 8,600+ commits, with 23,000 tests. Moved 31,000 referrals and 81,000 documents off the old system.",
+    tech: ["Python", "FastAPI", "PostgreSQL", "React", "AWS Textract", "AWS Bedrock", "Gemini", "OpenAI"],
   },
+  {
+    domain: "Contact center",
+    title: "Voice AI agent for outbound calling",
+    description:
+      "Places and answers calls, follows the call script, detects voicemail in English and Spanish, and hands qualified callers to a live agent. Each turn runs two models at once: one speaks while the other picks the next step, so the caller never waits on it.",
+    proof: "Made 88% of 750+ commits, covered by 640+ tests.",
+    tech: ["Python", "LiveKit", "Deepgram", "Cartesia", "OpenAI", "Twilio", "Redis", "AWS Lambda"],
+    article: "https://medium.com/p/5cf0886f3c32",
+  },
+  {
+    domain: "Engineering productivity",
+    title: "AI coding agents that ship pull requests",
+    description:
+      "A ticket goes in. An agent writes the change, tests it in a real browser, works through code review, and opens a pull request for a person to merge. I built two of these for two teams, plus an in-house pull request reviewer that replaced a paid service.",
+    proof: "375 agent-built branches merged across 19 repositories.",
+    tech: ["TypeScript", "Python", "Claude Code", "Codex", "GitHub Actions", "AWS ECS", "Terraform"],
+  },
+  {
+    domain: "Contact center",
+    title: "Lead-scoring model",
+    description:
+      "Predicts how likely each lead is to answer, by time of day and attempt number, so the dialer calls the right people at the right time. It retrains every week and only ships when it beats a simple baseline.",
+    proof: "AUC of 0.90 on held-out data, trained on millions of past calls. Built alone.",
+    tech: ["Python", "XGBoost", "MySQL", "AWS ECS Fargate"],
+  },
+  {
+    domain: "Enterprise training",
+    title: "Multi-company training and readiness platforms",
+    description:
+      "Two platforms that track courses, certifications, and staff readiness for large organizations. One keeps each company's data walled off, with field-level permissions and a full audit trail. The other adds single sign-on and live updates, and was load-tested for 6,000 people at once.",
+    proof: "Primary builder on both, with 2,200+ and 340+ commits.",
+    tech: [".NET 8", "SQL Server", "FastAPI", "PostgreSQL", "React", "Redis", "SAML"],
+  },
+  {
+    domain: "Cloud",
+    title: "AWS infrastructure as code",
+    description:
+      "Defined about 600 AWS resources in code across four environments. Moved services from servers to containers, with blue/green deploys that roll back on their own when alarms fire, and retired the old deploy tooling.",
+    proof: "Built alone, 296 of 300 commits.",
+    tech: ["AWS", "OpenTofu", "ECS Fargate", "Lambda", "CodeDeploy", "GitHub Actions"],
+  },
+];
+
+export const openSource: OpenSourceProject[] = [
   {
     title: "Agent Factory",
     description:
-      "No-code AI agent platform for BPO operations. Team leads define a goal and select internal platforms — the AI autonomously logs into portals, scrapes employee data, and analyzes KPIs using a LangGraph ReAct loop with dynamically generated Playwright tools. Live execution streams to a React Flow canvas via WebSocket.",
-    tech: ["Python", "FastAPI", "LangGraph", "Playwright", "React", "PostgreSQL", "Celery", "Docker"],
-    impact: "True autonomous AI agent — not a step sequencer",
-    image: "/agent-factory-demo.gif",
+      "Team leads describe a goal, and an AI agent logs into internal portals, gathers the data, and reports on it.",
     github: "https://github.com/Andymendez100/Agent-Factory",
   },
   {
     title: "Multi-Format RAG API",
     description:
-      "Production RAG API that ingests 14+ document formats (PDF, Excel, Word, PowerPoint, images) with GPU-accelerated OCR via PaddleOCR, generates embeddings via OpenAI or vLLM, and stores vectors in Qdrant for hybrid BM25 + semantic search. Fully containerized with PostgreSQL metadata store.",
-    tech: ["Python", "FastAPI", "Qdrant", "PostgreSQL", "PaddleOCR", "Docker"],
-    impact: "14+ formats, GPU-accelerated OCR, hybrid search",
-    image: "/projects/rag-demo.gif",
+      "Search across 14+ document formats, with GPU text extraction from images and combined keyword and semantic search.",
     github: "https://github.com/Andymendez100/rag",
   },
   {
+    title: "AI Assessment Creator",
+    description:
+      "Turns training documents into quizzes, streamed live, using 95% fewer tokens by sending only the relevant passages.",
+    github: "https://github.com/Andymendez100/AI-Assessment-Creator",
+  },
+  {
     title: "MeetBeats",
-    description:
-      "Music bot for Google Meet — like Discord music bots, but for meetings. Joins as a participant via Playwright, monitors chat for commands, and streams YouTube audio through a PulseAudio virtual microphone pipeline. Fully containerized with Docker.",
-    tech: ["TypeScript", "Node.js", "Playwright", "PulseAudio", "yt-dlp", "Docker"],
-    impact: "Full audio pipeline — YouTube to WebRTC",
-    image: "/projects/meetbeats-preview.svg",
+    description: "A music bot that joins Google Meet calls and plays requests from the chat.",
     github: "https://github.com/Andymendez100/MeetBeats",
-  },
-];
-
-export const professionalProjects: ProfessionalProject[] = [
-  {
-    title: "Production Voice AI Bot",
-    description:
-      "End-to-end production voice AI system with full telephony integration, conversational AI pipeline, and custom Answering Machine Detection (AMD), automating outbound call workflows and significantly increasing live contact rates.",
-    tech: ["Python", "Pipecat", "LiveKit", "AWS", "LangGraph", "Twilio"],
-    impact: "Automated outbound call workflows at scale",
-    article: "https://medium.com/p/5cf0886f3c32",
-  },
-  {
-    title: "Platform Re-architecture",
-    description:
-      "Transformed a single-threaded core platform into a multi-threaded architecture, dramatically improving throughput and agent productivity across the contact center.",
-    tech: ["Node.js", "Worker Threads", "Redis", "Docker"],
-    impact: "99.8% speed improvement",
-  },
-  {
-    title: "AWS Cloud Migration",
-    description:
-      "Led enterprise cloud migration from on-premise infrastructure to AWS, implementing load balancing and auto-scaling for cost optimization, reliability, and scalability.",
-    tech: ["AWS", "EC2", "Docker", "CI/CD", "CloudFront"],
-    impact: "30% cost reduction, 40% reliability improvement",
-  },
-  {
-    title: "NAWCTSD AI Challenge Winner",
-    description:
-      "Engineered a real-time anomaly detection tool at Raytheon Technologies that cut mission preparation time by 50%. Recognized as Top Innovation by NAWCTSD judges.",
-    tech: ["Python", "Machine Learning", "Data Visualization", "Real-time"],
-    impact: "Top Innovation Award — Raytheon",
-  },
-  {
-    title: "Digital Agent Interfaces",
-    description:
-      "Front-end interface for AI-powered digital agents at Soul Machines, deployed by enterprise clients including Woolworths and General Motors. Brought autonomous digital humans to life across customer-facing channels.",
-    tech: ["JavaScript", "Three.js", "WebGL", "Conversational AI"],
-    impact: "Deployed for Fortune 500 clients",
   },
 ];

@@ -1,37 +1,16 @@
-import { motion } from "framer-motion";
-import { skillCategories } from "../../data/skills";
-import { fadeInUp } from "../../lib/animations";
-import SectionHeading from "../ui/SectionHeading";
-import SkillBadge from "../ui/SkillBadge";
+import { skillGroups } from "../../data/skills";
+import Section, { Row } from "../layout/Section";
 
 export default function Skills() {
   return (
-    <div>
-      <SectionHeading
-        eyebrow="Expertise"
-        heading="Areas of Impact"
-        description="Where I drive results across technology organizations."
-      />
-
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {skillCategories.map((category, catIndex) => (
-          <motion.div
-            key={category.name}
-            variants={fadeInUp}
-            custom={catIndex}
-            className="rounded-xl border border-border bg-bg-card p-6 transition-colors hover:border-border-bright"
-          >
-            <h3 className="mb-4 text-sm font-semibold tracking-wider text-fg-bold uppercase">
-              {category.name}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {category.skills.map((skill) => (
-                <SkillBadge key={skill} name={skill} />
-              ))}
-            </div>
-          </motion.div>
+    <Section id="skills" title="Skills">
+      <div className="space-y-5">
+        {skillGroups.map((group) => (
+          <Row key={group.name} label={group.name}>
+            <p>{group.skills.join(", ")}</p>
+          </Row>
         ))}
       </div>
-    </div>
+    </Section>
   );
 }

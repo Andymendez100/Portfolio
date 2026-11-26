@@ -1,26 +1,22 @@
 import { experience } from "../../data/experience";
-import SectionHeading from "../ui/SectionHeading";
-import TimelineItem from "../ui/TimelineItem";
+import Section, { Row } from "../layout/Section";
 
 export default function Experience() {
   return (
-    <div>
-      <SectionHeading
-        eyebrow="Experience"
-        heading="Career Journey"
-        description="10+ years building production systems, from defense software to AI platforms."
-      />
-
-      <div className="space-y-4">
-        {experience.map((entry, index) => (
-          <TimelineItem
-            key={`${entry.company}-${entry.title}`}
-            entry={entry}
-            index={index}
-            isCurrent={index === 0}
-          />
-        ))}
-      </div>
-    </div>
+    <Section id="experience" title="Experience">
+      {experience.map((entry) => (
+        <div key={entry.company} className="space-y-5">
+          <Row>
+            <h3 className="text-xl font-semibold text-ink">{entry.company}</h3>
+          </Row>
+          {entry.roles.map((role) => (
+            <Row key={role.title} label={role.period}>
+              <p className="font-medium text-ink">{role.title}</p>
+              <p className="mt-1">{role.summary}</p>
+            </Row>
+          ))}
+        </div>
+      ))}
+    </Section>
   );
 }

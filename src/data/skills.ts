@@ -1,61 +1,38 @@
-export interface SkillCategory {
+export interface SkillGroup {
   name: string;
   skills: string[];
 }
 
-export const skillCategories: SkillCategory[] = [
+export const skillGroups: SkillGroup[] = [
   {
-    name: "Leadership & Strategy",
+    name: "AI",
     skills: [
-      "IT Strategy & Roadmapping",
-      "Cross-Functional Team Leadership",
-      "Vendor Negotiations & Licensing",
-      "Budget & Resource Management",
-      "Stakeholder Communication",
-      "Agile / Scrum",
+      "LLM agents",
+      "voice AI",
+      "RAG and document AI",
+      "fine-tuning and evals",
+      "machine learning (XGBoost)",
+      "Claude Code and Codex automation",
     ],
   },
   {
-    name: "AI & Automation",
-    skills: [
-      "Voice AI Systems",
-      "Multi-Agent Platforms",
-      "RAG & Document Intelligence",
-      "Conversational AI Pipelines",
-      "LLM Integration & Deployment",
-      "Workflow Automation",
-    ],
+    name: "Engineering",
+    skills: ["Python", "TypeScript", "C# / .NET", "React", "FastAPI", "Node.js", "PostgreSQL", "MySQL", "MongoDB", "Redis"],
   },
   {
-    name: "Cloud & Infrastructure",
-    skills: [
-      "AWS Architecture",
-      "Cloud Migration & Modernization",
-      "Docker & Kubernetes",
-      "CI/CD Pipelines",
-      "High-Availability Systems",
-      "Legacy Platform Modernization",
-    ],
+    name: "Cloud",
+    skills: ["AWS", "OpenTofu / Terraform", "ECS Fargate", "Lambda", "GitHub Actions", "Docker"],
   },
   {
-    name: "Security & Compliance",
-    skills: [
-      "Endpoint Security (SentinelOne)",
-      "Cybersecurity Strategy",
-      "ADA & GDPR Compliance",
-      "VPN & Network Security",
-      "Cyber Insurance Qualification",
-    ],
+    name: "Regulated systems",
+    skills: ["HIPAA", "multi-tenant data isolation", "audit trails", "SAML single sign-on", "healthcare billing (837 / 835)", "TCPA"],
   },
   {
-    name: "Platforms & Operations",
-    skills: [
-      "Genesys Contact Center",
-      "Twilio / Five9 Telephony",
-      "Salesforce",
-      "Jira & Confluence",
-      "Microsoft 365",
-      "Tableau / Power BI",
-    ],
+    name: "Contact center",
+    skills: ["Twilio", "Genesys Cloud", "LiveKit", "dialer and call routing"],
+  },
+  {
+    name: "Leadership",
+    skills: ["16+ person technology org", "hiring and mentoring", "budgets and vendors", "roadmaps", "AI-first engineering process"],
   },
 ];
