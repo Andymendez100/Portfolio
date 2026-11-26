@@ -8,6 +8,7 @@
   --color-accent: #d9a441;
   --color-rule: rgba(236, 232, 224, 0.09);
   --color-line: #5c6884; /* form field borders: 3:1 on bg */
+  --color-panel: #101a31;
 
   --font-sans: "Schibsted Grotesk", system-ui, sans-serif;
 }
@@ -43,6 +44,15 @@ body {
 
 .link:hover {
   text-decoration-thickness: 2px;
+}
+
+/* Faint grid behind the system diagrams */
+.blueprint {
+  background-color: var(--color-bg);
+  background-image:
+    linear-gradient(rgba(236, 232, 224, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(236, 232, 224, 0.035) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 /* The one orchestrated moment: the hero statement settles in on load */

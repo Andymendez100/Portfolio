@@ -8,10 +8,10 @@ export const skillGroups: SkillGroup[] = [
     name: "AI",
     skills: [
       "LLM agents",
-      "voice AI",
+      "Voice AI",
       "RAG and document AI",
-      "fine-tuning and evals",
-      "machine learning (XGBoost)",
+      "Fine-tuning and evals",
+      "Machine learning (XGBoost)",
       "Claude Code and Codex automation",
     ],
   },
@@ -25,14 +25,14 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     name: "Regulated systems",
-    skills: ["HIPAA", "multi-tenant data isolation", "audit trails", "SAML single sign-on", "healthcare billing (837 / 835)", "TCPA"],
+    skills: ["HIPAA", "Multi-tenant data isolation", "Audit trails", "SAML single sign-on", "Healthcare billing (837 / 835)", "TCPA"],
   },
   {
     name: "Contact center",
-    skills: ["Twilio", "Genesys Cloud", "LiveKit", "dialer and call routing"],
+    skills: ["Twilio", "Genesys Cloud", "LiveKit", "Dialer and call routing"],
   },
   {
     name: "Leadership",
-    skills: ["16+ person technology org", "hiring and mentoring", "budgets and vendors", "roadmaps", "AI-first engineering process"],
+    skills: ["16+ person technology org", "Hiring and mentoring", "Budgets and vendors", "Roadmaps", "AI-first engineering process"],
   },
 ];

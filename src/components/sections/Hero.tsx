@@ -8,44 +8,43 @@ const nav = [
 
 export default function Hero() {
   return (
-    <header className="pt-10 pb-20 md:pt-14 md:pb-28">
-      <div className="flex flex-wrap items-center justify-between gap-6">
-        <div className="flex items-center gap-4">
-          <img
-            src="/images/headshot-168.jpg"
-            alt="Andy Mendez"
-            width={56}
-            height={56}
-            className="h-14 w-14 rounded-full object-cover object-top"
-          />
-          <div className="leading-tight">
-            <p className="font-semibold text-ink">{resume.name}</p>
-            <p className="text-sm text-muted">{resume.headline}</p>
-          </div>
-        </div>
+    <header className="pt-8 pb-20 md:pb-24">
+      <nav aria-label="Sections" className="flex justify-end">
+        <ul className="flex gap-6 text-sm">
+          {nav.map((item) => (
+            <li key={item.href}>
+              <a href={item.href} className="text-fg transition-colors hover:text-ink">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
-        <nav aria-label="Sections">
-          <ul className="flex gap-6 text-sm">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <a href={item.href} className="text-fg transition-colors hover:text-ink">
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+      <div className="settle mt-16 flex flex-col gap-8 sm:flex-row sm:items-center md:mt-24">
+        <img
+          src="/images/headshot-320.jpg"
+          alt="Andy Mendez"
+          width={160}
+          height={160}
+          className="h-28 w-28 shrink-0 rounded-full object-cover md:h-40 md:w-40"
+        />
+        <div>
+          <h1 className="text-5xl leading-none font-bold tracking-[-0.03em] text-ink md:text-7xl">
+            {resume.name}
+          </h1>
+          <p className="mt-3 text-xl text-fg md:text-2xl">{resume.headline}</p>
+        </div>
       </div>
 
-      <h1 className="settle mt-20 max-w-[24ch] text-[clamp(2rem,4.4vw,3.25rem)] leading-[1.15] font-medium tracking-[-0.02em] text-ink md:mt-28">
-        {resume.statement}
-      </h1>
+      <p className="mt-10 max-w-[36rem] text-lg">{resume.summary}</p>
 
-      <p className="mt-8 max-w-[38rem] text-lg">{resume.summary}</p>
-
-      <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+      <ul className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
         <li>
-          <a href={`mailto:${resume.email}`} className="link font-medium">
+          <a
+            href={`mailto:${resume.email}`}
+            className="inline-block rounded-sm bg-accent px-5 py-2.5 font-semibold text-bg transition-opacity hover:opacity-90"
+          >
             Email me
           </a>
         </li>

@@ -7,7 +7,7 @@ import { resume } from "./data/resume";
 
 export default function App() {
   return (
-    <div className="mx-auto max-w-[56rem] px-6">
+    <div className="mx-auto max-w-6xl px-6">
       <Hero />
       <main>
         <Work />
