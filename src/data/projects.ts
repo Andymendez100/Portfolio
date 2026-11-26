@@ -15,6 +15,8 @@ export interface SelectedWork {
   proof: string;
   tech: string[];
   article?: string;
+  /** Slug of a matching case study in caseStudies.ts. */
+  caseStudy?: string;
 }
 
 export interface OpenSourceProject {
@@ -52,6 +54,7 @@ export const selectedWork: SelectedWork[] = [
     proof: "Made 88% of 750+ commits.",
     tech: ["Python", "LiveKit", "Deepgram", "Cartesia", "OpenAI", "Twilio", "Redis", "AWS Lambda"],
     article: "https://medium.com/p/5cf0886f3c32",
+    caseStudy: "voice-ai-agent",
   },
   {
     domain: "Engineering productivity",
@@ -65,6 +68,7 @@ export const selectedWork: SelectedWork[] = [
       "A ticket goes in. An agent writes the change, tests it in a real browser, works through code review, and opens a pull request for a person to merge. I built two of these for two teams, plus an in-house pull request reviewer that replaced a paid service.",
     proof: "375 agent-built branches merged across 19 repositories.",
     tech: ["TypeScript", "Python", "Claude Code", "Codex", "GitHub Actions", "AWS ECS", "Terraform"],
+    caseStudy: "ai-coding-agents",
   },
   {
     domain: "Contact center",

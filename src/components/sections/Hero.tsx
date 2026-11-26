@@ -1,6 +1,7 @@
 import { resume } from "../../data/resume";
 
 const nav = [
+  { href: "#case-studies", label: "Case studies" },
   { href: "#work", label: "Work" },
   { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },

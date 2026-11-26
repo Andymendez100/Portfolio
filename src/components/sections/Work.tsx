@@ -1,4 +1,5 @@
 import { selectedWork, openSource } from "../../data/projects";
+import { caseStudyPath } from "../../data/caseStudies";
 import Section from "../layout/Section";
 import Flow from "../ui/Flow";
 
@@ -24,6 +25,12 @@ export default function Work() {
                 </span>
                 <span className="text-sm text-muted">{work.metric.label}</span>
               </p>
+
+              {work.caseStudy && (
+                <a href={caseStudyPath(work.caseStudy)} className="link mt-5 inline-block self-start font-medium">
+                  Read the case study
+                </a>
+              )}
 
               <details className="group mt-5 border-t border-rule pt-4">
                 <summary className="cursor-pointer list-none text-sm text-ink [&::-webkit-details-marker]:hidden">
