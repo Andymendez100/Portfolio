@@ -49,9 +49,9 @@ export const caseStudies: CaseStudy[] = [
       "Jira",
     ],
     results: [
-      { value: "380+", label: "agent pull requests merged" },
-      { value: "16", label: "repositories it works across" },
-      { value: "0", label: "merges made by the agent itself" },
+      { value: "2.3×", label: "monthly merged pull requests, before vs. after" },
+      { value: "72%", label: "of merged changes in the core apps written by the agent" },
+      { value: "380+", label: "agent pull requests merged, every one approved by a person" },
     ],
     sections: [
       {
@@ -85,7 +85,8 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Results",
         paragraphs: [
-          "The first version has merged more than 380 pull requests across 16 repositories, every one approved by a person. The approach then moved to a second team as version two. There, labeling an issue starts one run that builds the change, QAs it in a headless browser, runs tests and a Codex pre-check, opens the pull request, answers review findings until they're clean, and pings the team in Slack.",
+          "In 2026 I rebuilt software engineering around the agent, and I now run all development with it. Comparing the five months after launch with the five before, merged pull requests per month went from about 75 to about 176, and lines changed rose by a similar amount. Pull requests got larger, not smaller. In the two core applications, the agent wrote about 72% of merged changes.",
+          "Across 16 repositories it has merged more than 380 pull requests, every one approved by a person. The approach then moved to a second team as version two. There, labeling an issue starts one run that builds the change, QAs it in a headless browser, runs tests and a Codex pre-check, opens the pull request, answers review findings until they're clean, and pings the team in Slack.",
           "That second team hit a real limit: the hosted reviewer's rate limits slowed reviews down. I replaced it with an in-house reviewer and made it a required merge check, so a pull request can't merge without a completed review.",
         ],
       },
