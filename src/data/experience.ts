@@ -9,6 +9,12 @@ export interface ExperienceEntry {
   roles: Role[];
 }
 
+export interface EarlierRole {
+  company: string;
+  title: string;
+  summary: string;
+}
+
 // Titles and dates match the resume. Change them there first.
 export const experience: ExperienceEntry[] = [
   {
@@ -34,56 +40,35 @@ export const experience: ExperienceEntry[] = [
       },
     ],
   },
+];
+
+// Shown without dates, matching the resume's "Earlier experience" section.
+export const earlierExperience: EarlierRole[] = [
   {
     company: "Raytheon Technologies",
-    roles: [
-      {
-        title: "Senior Full Stack Developer",
-        period: "Oct 2021 – Aug 2022",
-        summary:
-          "Won Top Innovation at the NAWCTSD AI Challenge with a real-time anomaly detection tool that cut mission preparation time in half.",
-      },
-    ],
+    title: "Senior Full Stack Developer",
+    summary:
+      "Won Top Innovation at the NAWCTSD AI Challenge with a real-time anomaly detection tool that cut mission preparation time in half.",
   },
   {
     company: "Soul Machines",
-    roles: [
-      {
-        title: "Senior Software Engineer",
-        period: "Jan 2022 – Aug 2022",
-        summary: "Built the front end for AI digital humans used by Fortune 500 brands.",
-      },
-    ],
+    title: "Senior Software Engineer",
+    summary: "Built the front end for AI digital humans used by Fortune 500 brands.",
   },
   {
     company: "Inland Empire Software Development",
-    roles: [
-      {
-        title: "Lead Software Engineer",
-        period: "Apr 2019 – Sep 2021",
-        summary:
-          "Led and mentored a team of engineers. Made client sites 160% faster and cut infrastructure costs by 25%.",
-      },
-    ],
+    title: "Lead Software Engineer",
+    summary:
+      "Led and mentored a team of engineers. Made client sites 160% faster and cut infrastructure costs by 25%.",
   },
   {
     company: "Trilogy Education",
-    roles: [
-      {
-        title: "Full Stack Web Development Teacher",
-        period: "May 2021 – Dec 2021",
-        summary: "Taught full-stack web development to people changing careers.",
-      },
-    ],
+    title: "Full Stack Web Development Instructor",
+    summary: "Taught full-stack web development to people changing careers.",
   },
   {
     company: "Freelance",
-    roles: [
-      {
-        title: "Web Developer",
-        period: "Aug 2016 – Oct 2021",
-        summary: "Built and ran full-stack web apps for clients across several industries.",
-      },
-    ],
+    title: "Full-Stack Developer",
+    summary: "Built and ran full-stack web apps for clients across several industries.",
   },
 ];

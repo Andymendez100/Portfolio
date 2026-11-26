@@ -1,4 +1,4 @@
-import { experience } from "../../data/experience";
+import { experience, earlierExperience } from "../../data/experience";
 import Section, { Row } from "../layout/Section";
 
 export default function Experience() {
@@ -17,6 +17,20 @@ export default function Experience() {
           ))}
         </div>
       ))}
+
+      <div className="space-y-5">
+        <Row>
+          <h3 className="text-xl font-semibold text-ink">Earlier experience</h3>
+        </Row>
+        {earlierExperience.map((role) => (
+          <Row key={role.company}>
+            <p className="font-medium text-ink">
+              {role.title}, {role.company}
+            </p>
+            <p className="mt-1">{role.summary}</p>
+          </Row>
+        ))}
+      </div>
     </Section>
   );
 }
