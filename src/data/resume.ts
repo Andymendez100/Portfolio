@@ -2,7 +2,7 @@ export const resume = {
   name: "Andy Mendez",
   headline: "AI engineering leader",
   summary:
-    "10+ years in software. I led a 16+ person technology organization, then rebuilt software engineering around AI agents I built. Today I run all development with them, and monthly output has more than doubled.",
+    "10+ years in software. I've led a 16+ person technology organization, and I build the AI my teams run on, including coding agents that now write most changes in our core apps.",
   location: "Los Angeles, California",
   email: "andy@andymendez.dev",
   github: "https://github.com/Andymendez100",

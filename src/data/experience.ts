@@ -24,7 +24,7 @@ export const experience: ExperienceEntry[] = [
         title: "Director of IT",
         period: "Nov 2024 – Present",
         summary:
-          "Led a 16+ person organization across engineering, infrastructure, QA, IT support, and design. In 2026 rebuilt software engineering around AI coding agents: I now run all development with them, at more than twice the previous monthly output, and lead IT. Built the company's voice AI agent, lead-scoring model, and coding agent.",
+          "Led a 16+ person organization across engineering, infrastructure, QA, IT support, and design. Moved engineering to an AI coding agent workflow that more than doubled monthly merged output. Built the company's voice AI agent, lead-scoring model, and coding agent.",
       },
       {
         title: "Software Engineering Manager",

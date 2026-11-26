@@ -33,6 +33,6 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     name: "Leadership",
-    skills: ["Led a 16+ person technology org", "AI-first org design", "Hiring and mentoring", "Budgets and vendors", "Roadmaps"],
+    skills: ["Led a 16+ person technology org", "Hiring and mentoring", "Budgets and vendors", "Roadmaps", "AI-first engineering process"],
   },
 ];
